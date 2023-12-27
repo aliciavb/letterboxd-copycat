@@ -12,8 +12,8 @@ export const Films = () => {
     } , [])
 
     return(
-        <>
+        <div className='Films'>
             <h2>Films</h2>
-        </>
+        </div>
     )
 }

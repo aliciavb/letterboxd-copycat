@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useRef } from "react"
-import { Header } from "../../components/Header/Header"
-
-import './Login.css'
+import { Header } from "../components/Header/Header"
 
 export const Login = () => {
 

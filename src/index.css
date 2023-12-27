@@ -8,6 +8,7 @@ body {
     background-position: 0 0;
     color: #9ab;
     height: 100%;
+    width: 100%;
     line-height: 1;
     display: block;
 }
@@ -24,6 +25,19 @@ h2 {
   outline: 0;
   padding: 0;
   vertical-align: baseline;
+}
+
+.Login, .Films{
+  margin: 0 auto;
+  width: fit-content;
+  padding: 2em;
+}
+
+input{
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 
