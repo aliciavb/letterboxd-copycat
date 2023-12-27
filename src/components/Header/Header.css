@@ -1,12 +1,7 @@
 .Header{
-    width: 100%;
-}
-.Header-section{
-    height: 72px;
     margin: 0 auto;
-    position: relative;
-    width: 950px;
-    display: block;
+    width: 90%;
+    max-width: 1000px;
 }
 
 .Header-logo{
@@ -14,26 +9,37 @@
     margin: 22px 0 0;
     position: relative;
 }
-.Header-nav{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-}
+
 .Header-ul{
-   margin: 22px 0 0;
+    margin: 22px 0 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
 }
 
 .Header-li{
-    display: block;
-    float: left;
+    width: fit-content;
     font-size: 1rem;
-    letter-spacing: .07692308em;
-    line-height: 17px;
-    margin-left: 15px;
-    text-transform: uppercase;
+    margin: 0 10px; /* Add some spacing between items */
 }
+
 .Header-a{
     color: #d8e0e8;
     font-family: Graphik-Semibold-Web,sans-serif;
     font-weight: 600;
+    text-transform: uppercase;
 }
+.Header-section {
+    height: 72px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px; /* Add padding to the sides for better spacing */
+  }
+  
+
+  
+  
