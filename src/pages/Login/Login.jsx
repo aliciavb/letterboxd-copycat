@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useRef } from "react"
+import { Header } from "../../components/Header/Header"
+
+import './Login.css'
 
 export const Login = () => {
 
@@ -43,15 +46,18 @@ export const Login = () => {
         .catch( err => console.log( err ))
     }
 
-    return(
-        <>
-            <h2>Login</h2>
-
-            <form onSubmit={ formHandler }>
-                <input type="text"     name="name" ref={ name } placeholder="username"/>
-                <input type="password" name="pass" ref={ pass } placeholder="password"/>
-                <input type="submit" value="Iniciar sesión" />
-            </form>
-        </>
-    )
+    return (
+      <div>
+        <Header />
+        <div className="Login">
+          <h2>Login</h2>
+          <form onSubmit={formHandler}>
+            <input type="text" name="name" ref={name} placeholder="Username" />
+            <input type="password" name="pass" ref={pass} placeholder="Password" />
+            <input type="submit" value="Sign in" />
+          </form>
+        </div>
+      </div>
+    );
 }
+

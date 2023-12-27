@@ -1,0 +1,39 @@
+.Header{
+    width: 100%;
+}
+.Header-section{
+    height: 72px;
+    margin: 0 auto;
+    position: relative;
+    width: 950px;
+    display: block;
+}
+
+.Header-logo{
+    float: left;
+    margin: 22px 0 0;
+    position: relative;
+}
+.Header-nav{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.Header-ul{
+   margin: 22px 0 0;
+}
+
+.Header-li{
+    display: block;
+    float: left;
+    font-size: 1rem;
+    letter-spacing: .07692308em;
+    line-height: 17px;
+    margin-left: 15px;
+    text-transform: uppercase;
+}
+.Header-a{
+    color: #d8e0e8;
+    font-family: Graphik-Semibold-Web,sans-serif;
+    font-weight: 600;
+}

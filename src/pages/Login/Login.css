@@ -1,0 +1,12 @@
+.Login{
+    margin: 0 auto;
+    width: fit-content;
+    padding: 2em;
+}
+
+input{
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 5px;
+    border: 1px solid white;
+}
