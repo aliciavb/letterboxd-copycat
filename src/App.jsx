@@ -1,7 +1,7 @@
 import {Router, Routes, Route, BrowserRouter} from 'react-router-dom'
 
 import './App.css'
-import { Login } from './pages/Login'
+import { Index } from './pages/Index'
 import { Films } from './pages/Films'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
     <>
       <Routes>
-        <Route path='/'       element={ <Login/> }/>
+        <Route path='/'       element={ <Index /> }/>
         <Route path='/films'  element={ <Films/> }/>
       </Routes>
       

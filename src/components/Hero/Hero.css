@@ -1,0 +1,48 @@
+ .Hero {
+    height: 675px;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 1200px;
+    z-index: 0;
+}
+
+.Hero-img {
+    height: 99.95%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.Hero-mask {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(20, 24, 29, 0.7) 0%, rgba(20, 24, 29, 0) 20%),
+                linear-gradient(0deg, rgba(20, 24, 29, 1) 10%, rgba(20, 24, 29, 0.8) 20%, rgba(20, 24, 29, 0) 40%),
+                linear-gradient(90deg, #14181d 0%, rgba(20, 24, 29, 0) 20%),
+                linear-gradient(270deg, #14181d 0%, rgba(20, 24, 29, 0) 20%);
+    z-index: 0;
+}
+
+.Hero-metadata {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: rotate(-90deg) translateY(-50%);
+    right: 0;
+    transform-origin: 50% 0;
+}
+
+.Hero-div{
+    padding-top: 400px;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    line-height: 1;
+}
+
