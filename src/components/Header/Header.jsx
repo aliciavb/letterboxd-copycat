@@ -37,7 +37,7 @@ export const Header = () => {
           <ul className="Header-ul">
             <li className="Header-li">
               <a className="Header-a" onClick={toggleOpen}>
-                <span>{open ? "Close" : "Sign in"}</span>
+                <span>Sign in</span>
               </a>
               <Login
                 open={open}
@@ -45,6 +45,7 @@ export const Header = () => {
                 pass={pass}
                 VITE_URL_API={VITE_URL_API}
                 navigate={navigate}
+                toggleOpen={toggleOpen}
               />
             </li>
             <li className="Header-li">
@@ -80,7 +81,7 @@ export const Header = () => {
 };
 
 const Login = (props) => {
-  const { open, name, pass, VITE_URL_API, navigate } = props;
+  const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props;
 
   //funcionamiento del formulario con la api
   const formHandler = (e) => {
@@ -110,14 +111,17 @@ const Login = (props) => {
   };
   return (
     <div className={`Login ${open ? "isVisible" : ""}`}>
-      <h2>Login</h2>
-      <form onSubmit={formHandler}>
-        <input type="text" name="name" ref={name} placeholder="Username" />
-        <input type="password" name="pass" ref={pass} placeholder="Password" />
-        <input type="submit" value="Sign in" />
-        <button type="button" onClick={() => formHandler()}>
-          Close
-        </button>
+      <form className="Login-form" onSubmit={formHandler}>
+        <a className="Login-close" onClick={toggleOpen}>x</a>
+        <div className="Login-field">
+          <label for="name">Username</label>
+          <input type="text" name="name" ref={name} placeholder="Username" />
+        </div>
+        <div className="Login-field">
+          <label for="pass">Password</label>
+          <input type="password" name="pass" ref={pass} placeholder="Password" />
+        </div>
+        <input className="Login-submit" type="submit" value="Sign in" />
       </form>
     </div>
   );

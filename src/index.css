@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+:root{
+  --verde: #00ac1c;
+}
 
 body {
     font-family: GraphikWeb,sans-serif;
