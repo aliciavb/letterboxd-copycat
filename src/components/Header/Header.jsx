@@ -64,14 +64,6 @@ export const Header = () => {
             ))}
           </ul>
         </nav>
-        <form id="search" class="js-search-form search-form" action="/search/" method="get" autocorrect="off" >
-          <input autocomplete="false" name="hidden" type="text" style="display:none;" />
-          <fieldset>
-            <label for="search-q" class="hidden"> Search: </label>
-            <input type="text" name="q" id="search-q" class="field -borderless" data-lpignore="true" inputmode="search" value="" />
-            <input type="submit" value="Search" class="action" />
-          </fieldset>
-        </form>
       </section>
     </header>
   );
@@ -134,7 +126,7 @@ const Li = (props) => {
   const { span, href } = props;
   return (
     <li className="Header-li">
-      <a className="Header-a" href={href}>
+      <a className="Header-a" href={href} target="_blank">
         <span>{span}</span>
       </a>
     </li>
