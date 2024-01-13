@@ -10,6 +10,17 @@ export const Header = () => {
   const name = useRef("");
   const pass = useRef("");
 
+  // useState para buscar los elementos del nav menu
+  const [nav, setNav] = useState([]);
+
+  useEffect(() => {
+  // useEffect para hacer fetch en el endpoint /nav
+    fetch(`${VITE_URL_API}nav`)
+      .then((res) => res.json())
+      .then((data) => setNav(data))
+      .catch((err) => console.log(err));
+    }, [ ]);
+
   //comprueba si hay usuarios en localStorage y entra a films
   useEffect(() => {
     if (localStorage.getItem("usuarios")) {
@@ -20,7 +31,7 @@ export const Header = () => {
   //abre y cierra el popup de login
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
-
+  
   return (
     <header className="Header">
       <section className="Header-section">
@@ -48,33 +59,19 @@ export const Header = () => {
                 toggleOpen={toggleOpen}
               />
             </li>
-            <li className="Header-li">
-              <a className="Header-a">
-                <span>Create account</span>
-              </a>
-            </li>
-            <li className="Header-li">
-              <a className="Header-a">
-                <span>Films</span>
-              </a>
-            </li>
-            <li className="Header-li">
-              <a className="Header-a">
-                <span>Lists</span>
-              </a>
-            </li>
-            <li className="Header-li">
-              <a className="Header-a">
-                <span>Members</span>
-              </a>
-            </li>
-            <li className="Header-li">
-              <a className="Header-a">
-                <span>Journal</span>
-              </a>
-            </li>
+            {nav.map((eachLi) => (
+              <Li key={eachLi.id} {...eachLi} />
+            ))}
           </ul>
         </nav>
+        <form id="search" class="js-search-form search-form" action="/search/" method="get" autocorrect="off" >
+          <input autocomplete="false" name="hidden" type="text" style="display:none;" />
+          <fieldset>
+            <label for="search-q" class="hidden"> Search: </label>
+            <input type="text" name="q" id="search-q" class="field -borderless" data-lpignore="true" inputmode="search" value="" />
+            <input type="submit" value="Search" class="action" />
+          </fieldset>
+        </form>
       </section>
     </header>
   );
@@ -104,8 +101,11 @@ const Login = (props) => {
       .then((data) => {
         if (data) {
           localStorage.setItem("usuarios", JSON.stringify(data));
+          //añadir si funciona navigate, si no mensaje de error
           navigate("/films");
         }
+
+        //boton de cerrar sesion con localStorage.removeItem("usuarios", JSON.stringify(data));
       })
       .catch((err) => console.log(err));
   };
@@ -124,5 +124,19 @@ const Login = (props) => {
         <input className="Login-submit" type="submit" value="Sign in" />
       </form>
     </div>
+  );
+};
+
+
+  
+
+const Li = (props) => {
+  const { span, href } = props;
+  return (
+    <li className="Header-li">
+      <a className="Header-a" href={href}>
+        <span>{span}</span>
+      </a>
+    </li>
   );
 };
