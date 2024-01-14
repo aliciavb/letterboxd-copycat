@@ -73,9 +73,16 @@ export const Header = () => {
 const Login = (props) => {
   const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props
 
+  //logica de las interacciones al hacer login
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
   //funcionamiento del formulario con la api
-  const formHandler = (e) => {
+  const formHandler = async (e) => {
     e.preventDefault();
+    
+    //cambiamos state de setLoading
+    setLoading(true);
 
     let nuevo = {
       name: name.current.value,
@@ -89,18 +96,33 @@ const Login = (props) => {
         "Content-type": "application/json",
       },
     };
-    fetch(VITE_URL_API, options)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          localStorage.setItem("usuarios", JSON.stringify(data));
-          //añadir si funciona navigate, si no mensaje de error
-          navigate("/films");
+     fetch(VITE_URL_API, options)
+       .then((res) => res.json())
+       .then((data) => {
+         if (data) {
+           localStorage.setItem("usuarios", JSON.stringify(data));
+           //añadir si funciona navigate, si no mensaje de error
+           navigate("/films");
         }
 
-        //boton de cerrar sesion con localStorage.removeItem("usuarios", JSON.stringify(data));
-      })
-      .catch((err) => console.log(err));
+         //boton de cerrar sesion con localStorage.removeItem("usuarios", JSON.stringify(data));
+       })
+       .catch((err) => console.log(err));
+
+      // //trycatch para que haga navigate o muestre mensaje de error
+      // try {
+      //   const res = await fetch(VITE_URL_API, options)
+      //   const data = await res.json();
+  
+      //   if (data) {
+      //     localStorage.setItem("usuarios", JSON.stringify(data))
+      //     navigate("/films")
+      //   }
+      // } catch (err) {
+      //   setError("Los datos introducidos son incorrectos")
+      // } finally {
+      //   setLoading(false);
+      // }
   };
   return (
     <div className={`Login ${open ? "isVisible" : ""}`}>
@@ -115,6 +137,8 @@ const Login = (props) => {
           <input type="password" name="pass" ref={pass} placeholder="Password" />
         </div>
         <input className="Login-submit" type="submit" value="Sign in" />
+        {/* {loading && <p>Loading...</p>}
+        {error && <p className="error-message">{error}</p>} */}
       </form>
     </div>
   );
