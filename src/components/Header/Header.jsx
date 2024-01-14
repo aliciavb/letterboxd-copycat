@@ -38,7 +38,7 @@ export const Header = () => {
         <h1 className="Header-h1">
           <a href="/" className="Header-logo">
             <img
-              src="/assets/H1-logo.webp"
+              src="/assets/H1-logo.svg"
               alt="Letterboxd | Logo"
               loading="lazy"
             />
@@ -50,6 +50,7 @@ export const Header = () => {
               <a className="Header-a" onClick={toggleOpen}>
                 <span>Sign in</span>
               </a>
+              {/* meter useContext para no repetir las props */}
               <Login
                 open={open}
                 name={name}
@@ -70,7 +71,7 @@ export const Header = () => {
 };
 
 const Login = (props) => {
-  const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props;
+  const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props
 
   //funcionamiento del formulario con la api
   const formHandler = (e) => {
