@@ -1,6 +1,9 @@
 .Header {
   z-index: 2;
   position: relative;
+  background-color: transparent;
+}
+.Header.isLogged{
   background-color: #14181c;
 }
 

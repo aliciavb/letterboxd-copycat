@@ -13,6 +13,9 @@ export const Header = () => {
   // useState para buscar los elementos del nav menu
   const [nav, setNav] = useState([]);
 
+  // useState para diferenciar el header si está loggeado o no
+  const [loggedIn, setLoggedIn] = useState(false);
+
   useEffect(() => {
   // useEffect para hacer fetch en el endpoint /nav
     fetch(`${VITE_URL_API}nav`)
@@ -24,7 +27,8 @@ export const Header = () => {
   //comprueba si hay usuarios en localStorage y entra a films
   useEffect(() => {
     if (localStorage.getItem("usuarios")) {
-      navigate("/films");
+      navigate("/films")
+      setLoggedIn(true)
     }
   }, []);
 
@@ -33,7 +37,7 @@ export const Header = () => {
   const toggleOpen = () => setOpen(!open);
   
   return (
-    <header className="Header">
+    <header className={`Header ${loggedIn ? "isLogged" : ""}`}>
       <section className="Header-section">
         <h1 className="Header-h1">
           <a href="/" className="Header-logo">
@@ -77,17 +81,18 @@ const Login = (props) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
+
   //funcionamiento del formulario con la api
   const formHandler = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     
     //cambiamos state de setLoading
-    setLoading(true);
+    setLoading(true)
 
     let nuevo = {
       name: name.current.value,
       pass: pass.current.value,
-    };
+    }
 
     let options = {
       method: "post",
@@ -95,14 +100,18 @@ const Login = (props) => {
       headers: {
         "Content-type": "application/json",
       },
-    };
+    }
+
      fetch(VITE_URL_API, options)
        .then((res) => res.json())
        .then((data) => {
-         if (data) {
-           localStorage.setItem("usuarios", JSON.stringify(data));
-           //añadir si funciona navigate, si no mensaje de error
-           navigate("/films");
+        if (data) {
+          localStorage.setItem("usuarios", JSON.stringify(data))
+          setLoggedIn(true)
+          navigate("/films")
+        }else{
+          console.log("Los datos son incorrectos")
+          setError("Los datos introducidos son incorrectos")
         }
 
          //boton de cerrar sesion con localStorage.removeItem("usuarios", JSON.stringify(data));
@@ -123,7 +132,7 @@ const Login = (props) => {
       // } finally {
       //   setLoading(false);
       // }
-  };
+  }
   return (
     <div className={`Login ${open ? "isVisible" : ""}`}>
       <form className="Login-form" onSubmit={formHandler}>
@@ -137,8 +146,8 @@ const Login = (props) => {
           <input type="password" name="pass" ref={pass} placeholder="Password" />
         </div>
         <input className="Login-submit" type="submit" value="Sign in" />
-        {/* {loading && <p>Loading...</p>}
-        {error && <p className="error-message">{error}</p>} */}
+        {/* {loading && <p>Loading...</p>}*/}
+        {error && <p className="error-message">{error}</p>} 
       </form>
     </div>
   );
