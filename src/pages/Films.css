@@ -9,8 +9,22 @@
     
     padding: 2em 0;
 }
-.Popular-carrousel{
+.Popular-carrousel {
     display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.Popular-li {
+    /* flex grow, shrink, basis*/
+    flex: 0 0 calc(25% - 10px); /* 100:4 menos el margen */
+    margin-right: 10px; 
+}
+
+/* Para que la última card llegue hasta el borde del wrapper */
+.Popular-li:last-child {
+    margin-right: 0;
 }
 
 .Popular-intro{
@@ -28,9 +42,10 @@
     padding-bottom: 5px;
     text-transform: uppercase;
 }
-.Popular-li{
-    margin-right: 10px;
+.Popular-intro h3, span{
+    font-size: .8rem;
 }
+
 .Film-poster{
     width: 230px;
     background: #161718;
