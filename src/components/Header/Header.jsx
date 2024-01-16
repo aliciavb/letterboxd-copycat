@@ -1,40 +1,42 @@
-import "./Header.css";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import "./Header.css"
+import { useBeforeUnload, useNavigate } from "react-router-dom"
+import { useState, useEffect, useRef } from "react"
 
 export const Header = () => {
-  const { VITE_URL_API } = import.meta.env;
+  const { VITE_URL_API } = import.meta.env
 
   //revisar no dejar useRefs vacios??
   const navigate = useNavigate();
-  const name = useRef("");
-  const pass = useRef("");
+  const name = useRef("")
+  const pass = useRef("")
 
   // useState para buscar los elementos del nav menu
-  const [nav, setNav] = useState([]);
+  const [nav, setNav] = useState([])
 
   // useState para diferenciar el header si está loggeado o no
-  const [loggedIn, setLoggedIn] = useState(false);
-
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [username, setUsername] = useState("")
   useEffect(() => {
   // useEffect para hacer fetch en el endpoint /nav
     fetch(`${VITE_URL_API}nav`)
       .then((res) => res.json())
       .then((data) => setNav(data))
-      .catch((err) => console.log(err));
-    }, [ ]);
+      .catch((err) => console.log(err))
+    }, [ ])
 
   //comprueba si hay usuarios en localStorage y entra a films
   useEffect(() => {
     if (localStorage.getItem("usuarios")) {
       navigate("/films")
       setLoggedIn(true)
+      const buscarUsername =  JSON.parse(localStorage.getItem("usuarios"))
+      setUsername(buscarUsername.name)
     }
-  }, []);
+  }, [])
 
   //abre y cierra el popup de login
-  const [open, setOpen] = useState(false);
-  const toggleOpen = () => setOpen(!open);
+  const [open, setOpen] = useState(false)
+  const toggleOpen = () => setOpen(!open)
   
   return (
     <header className={`Header ${loggedIn ? "isLogged" : ""}`}>
@@ -52,7 +54,9 @@ export const Header = () => {
           <ul className="Header-ul">
             <li className="Header-li">
               <a className="Header-a" onClick={toggleOpen}>
-                <span>Sign in</span>
+                {loggedIn ? <span>{username}</span>
+                : <span>Sign in</span>
+              }
               </a>
               {/* meter useContext para no repetir las props */}
               <Login
@@ -64,9 +68,13 @@ export const Header = () => {
                 toggleOpen={toggleOpen}
               />
             </li>
+            
             {nav.map((eachLi) => (
               <Li key={eachLi.id} {...eachLi} />
             ))}
+            {loggedIn 
+              ? <Log /> //meter el Li para hacer el CRUD
+              : ""}
           </ul>
         </nav>
       </section>
@@ -81,6 +89,8 @@ const Login = (props) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
+// useState para diferenciar el header si está loggeado o no
+const [loggedIn, setLoggedIn] = useState(false)
 
   //funcionamiento del formulario con la api
   const formHandler = async (e) => {
@@ -107,8 +117,8 @@ const Login = (props) => {
        .then((data) => {
         if (data) {
           localStorage.setItem("usuarios", JSON.stringify(data))
-          setLoggedIn(true)
-          navigate("/films")
+            navigate("/films")
+            setLoggedIn(true)
         }else{
           console.log("Los datos son incorrectos")
           setError("Los datos introducidos son incorrectos")
@@ -118,7 +128,7 @@ const Login = (props) => {
        })
        .catch((err) => console.log(err));
 
-      // //trycatch para que haga navigate o muestre mensaje de error
+      //trycatch para que haga navigate o muestre mensaje de error
       // try {
       //   const res = await fetch(VITE_URL_API, options)
       //   const data = await res.json();
@@ -134,7 +144,7 @@ const Login = (props) => {
       // }
   }
   return (
-    <div className={`Login ${open ? "isVisible" : ""}`}>
+    <div className={`Login ${open ? "isVisible" : ""} ${loggedIn ? "isLogged" : ""}`}>
       <form className="Login-form" onSubmit={formHandler}>
         <a className="Login-close" onClick={toggleOpen}>x</a>
         <div className="Login-field">
@@ -145,9 +155,9 @@ const Login = (props) => {
           <label for="pass">Password</label>
           <input type="password" name="pass" ref={pass} placeholder="Password" />
         </div>
-        <input className="Login-submit" type="submit" value="Sign in" />
+        <input className="Login-submit" type="submit" value="Sign in" />       
         {/* {loading && <p>Loading...</p>}*/}
-        {error && <p className="error-message">{error}</p>} 
+        {/* {error && <p className="error-message">{error}</p>}  */}
       </form>
     </div>
   );
@@ -166,3 +176,18 @@ const Li = (props) => {
     </li>
   );
 };
+
+
+const Log = (props) => {
+  const {logOpen} = props
+  return(
+    <li className="Header-li Log">
+      <a className="Header-a">
+        <span>Log</span>
+      </a>
+      <form className={`Log-form ${logOpen ? "isVisible" : ""}`}>
+
+      </form>
+    </li>
+  )
+}

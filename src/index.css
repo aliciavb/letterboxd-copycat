@@ -45,14 +45,14 @@ input{
 }
 
 @font-face {
-  font-family: GraphikWeb;
+  font-family: "GraphikWeb";
   font-style: normal;
   font-weight: 400;
   src: "/assets/Graphik-Regular-Web.woff";
 }
 
 @font-face {
-    font-family: TiemposHeadlineWeb;
+    font-family: "TiemposHeadlineWeb";
     font-style: normal;
     font-weight: 700;
     src:"/assets/TiemposHeadlineWeb-Bold.woff"

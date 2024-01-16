@@ -18,6 +18,10 @@ export const Films = () => {
      // useState para buscar los elementos del array de films
     const [films, setFilms] = useState([]);
 
+
+    // useState para buscar los elementos del array de myfilms
+    const [ myFilms, setMyFilms] = useState([]);
+
     // useEffect para hacer fetch en el endpoint /films
     useEffect(() => {
           fetch(`${VITE_URL_API}films`)
@@ -25,6 +29,14 @@ export const Films = () => {
             .then((data) => {setFilms(data);})
             .catch((err) => console.log(err));
           }, [ ]);
+
+    // useEffect para hacer fetch en el endpoint /myfilms
+    useEffect(() => {
+        fetch(`${VITE_URL_API}myfilms`)
+          .then((res) => res.json())
+          .then((data) => {setMyFilms(data);})
+          .catch((err) => console.log(err));
+        }, [ ]);
 
     return(
         <div className='Films'>
@@ -37,9 +49,28 @@ export const Films = () => {
 	            <div className="Popular-wrapper">
                     {/* botones prev y next para carrusel */}
                     <div>
-                        <ul  className="Popular-carrousel">
+                        <ul className="Popular-carrousel">
                         {films.map((eachPopularLi) => (
                             <PopularLi 
+                                key={eachPopularLi.id}
+                                {...eachPopularLi}
+                            />
+                        ))}
+	                    </ul>
+                    </div>
+                </div>
+            </section>
+            <section className="Films-popular Films-personal">
+                <div className="Popular-intro Personal-intro">
+	            <h3>Your seen films</h3>
+	            <span>See all</span>
+                </div>
+	            <div className="Popular-wrapper Personal-wrapper">
+                    {/* botones prev y next para carrusel */}
+                    <div>
+                        <ul className="Popular-carrousel Personal-wrapper">
+                        {myFilms.length === 0 ? <li>Añade pelis </li> : myFilms.map((eachPopularLi) => (
+                            <MyFilmsLi 
                                 key={eachPopularLi.id}
                                 {...eachPopularLi}
                             />
@@ -114,13 +145,53 @@ const FilmStats = (props) => {
 }
 
 
+const MyFilmsLi = (props) => {
+    const { VITE_URL_API } = import.meta.env;
+
+    const {id, src, alt, href, title, year, views, lists, likes} = props
+
+     // useState para buscar los elementos del array de myfilms
+     const [myFilms, setMyFilms] = useState([]);
+
+     // useEffect para hacer fetch en el endpoint /myfilms
+     useEffect(() => {
+           fetch(`${VITE_URL_API}myfilms`)
+             .then((res) => res.json())
+             .then((data) => {setMyFilms(data);})
+             .catch((err) => console.log(err));
+           }, [ ]);
+
+    return(
+        <li className="Popular-li">
+            <div className="Film-poster">
+                <div className="Film-info" >
+                    <img src={src} alt={alt} loading='lazy'/>
+                    <a href={href} target='_blank'>
+                        <span className="Film-text">{title} ({year})</span>
+                    </a>
+                </div>
+            </div>
+            <ul className="Film-stats">
+                {/* meter useContext para no repetir las props */}
+                <FilmStats
+                    key={id}
+                    views={views}
+                    lists={lists}
+                    likes={likes}
+                />
+            </ul>
+        </li>
+    )
+}
+
 
 {/* botones prev y next para carrusel */ }
 {/* <ul className="">
-                        <li className="">
-                            <a href="#" className=""><span>Prev</span></a>
-                        </li>
-                        <li className="">
-                            <a href="#"><span>Next</span></a>
-                        </li>
-                    </ul> */}
+        <li className="">
+            <a href="#" className=""><span>Prev</span></a>
+        </li>
+        <li className="">
+            <a href="#" className=""><span>Next</span></a>
+        </li>
+    </ul>
+*/}
