@@ -88,9 +88,9 @@
  const Login = (props) => {
    const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props
 
-   //logica de las interacciones al hacer login
-   const [loading, setLoading] = useState(false)
-   const [error, setError] = useState("")
+  //  //logica de las interacciones al hacer login
+  //  const [loading, setLoading] = useState(false)
+  //  const [error, setError] = useState("")
 
    // useState para diferenciar el header si está loggeado o no
    const [loggedIn, setLoggedIn] = useState(false)

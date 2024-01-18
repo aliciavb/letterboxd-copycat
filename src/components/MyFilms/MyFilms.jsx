@@ -39,6 +39,10 @@ const MyFilms = () => {
     }
 
 
+    //state del formulario (abierto o cerrado)
+  const [editOpen, setEditOpen] = useState(false)
+  const editToggleOpen = () => setEditOpen(!editOpen)
+
 
   const editHandler = (id) => {
     const filmToEdit = myFilms.find((film) => film._id === id);
@@ -48,6 +52,9 @@ const MyFilms = () => {
     editId.value = filmToEdit._id;
     editTitle.value = filmToEdit.title;
     editYear.value = filmToEdit.year;
+
+    //abre y cierra el formulario de edit
+    editToggleOpen()
   };
 
   const formEditHandler = async (e) => {
@@ -96,7 +103,7 @@ const MyFilms = () => {
 
       
 
-      <div className="Edit-div">
+      <div className={`Edit-div ${editOpen ? "isVisible" : ""}`}>
         <h3>Edit Film</h3>
         <form onSubmit={formEditHandler} ref={editFilm}>
           <input type="hidden" id="editId" />
@@ -118,12 +125,12 @@ const Film = ({ _id, title, year, deleteFilmHandler, editHandler }) => {
         </span>
       </div>
       <div className="MyFilm-actions">
-      <span class="MyFilm-edit">
+      <span className="MyFilm-edit">
         <button onClick={() => editHandler(_id)}>
             <img src="/assets/edit-icon.svg" alt="edit icon" loading="lazy" />
         </button>
         </span>
-      <span class="MyFilm-delete">
+      <span className="MyFilm-delete">
         <button onClick={() => deleteFilmHandler(_id)}>
             <img src="/assets/delete-icon.svg" alt="delete icon" loading="lazy" />
         </button>

@@ -36,5 +36,11 @@
 }
 
 .Edit-div{
+    opacity: 0;
+    margin:1rem;
+}
+
+.Edit-div.isVisible{
+    opacity: 1;
     margin:1rem;
 }
