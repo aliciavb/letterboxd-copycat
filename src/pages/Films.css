@@ -123,39 +123,3 @@
 
 
 
-.MyFilm-li{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    padding: 1em 0;
-    border-bottom: 1px solid #2c3440;
-}
-.MyFilm-text{
-    color: #fff;
-    text-align: center;
-    border-radius: 3px;
-    font-family: Graphik-Web,sans-serif;
-    font-size:.8rem;
-    font-weight: 100;
-
-
-
-    margin: 0;
-    vertical-align: middle;
-    width: 300px;
-    font-family: TiemposHeadlineWeb,Georgia,serif;
-    font-size: 1.38461538rem;
-    font-weight: 700;
-
-}
-.MyFilm-actions{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-}
-.MyFilm-edit img, .MyFilm-delete img{
-    height: 1rem;
-    padding: 0 .5rem;
-}
