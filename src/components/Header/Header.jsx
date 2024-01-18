@@ -1,6 +1,7 @@
 import "./Header.css"
-import { useBeforeUnload, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
+import Log from "../Log"
 
 export const Header = () => {
   const { VITE_URL_API } = import.meta.env
@@ -9,6 +10,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const name = useRef("")
   const pass = useRef("")
+
 
   // useState para buscar los elementos del nav menu
   const [nav, setNav] = useState([])
@@ -37,7 +39,8 @@ export const Header = () => {
   //abre y cierra el popup de login
   const [open, setOpen] = useState(false)
   const toggleOpen = () => setOpen(!open)
-  
+
+
   return (
     <header className={`Header ${loggedIn ? "isLogged" : ""}`}>
       <section className="Header-section">
@@ -51,7 +54,7 @@ export const Header = () => {
           </a>
         </h1>
         <nav className="Header-nav">
-          <ul className="Header-ul">
+            <ul className="Header-ul">
             <li className="Header-li">
               <a className="Header-a" onClick={toggleOpen}>
                 {loggedIn ? <span>{username}</span>
@@ -79,8 +82,8 @@ export const Header = () => {
         </nav>
       </section>
     </header>
-  );
-};
+  )
+}
 
 const Login = (props) => {
   const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props
@@ -89,8 +92,8 @@ const Login = (props) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
-// useState para diferenciar el header si está loggeado o no
-const [loggedIn, setLoggedIn] = useState(false)
+  // useState para diferenciar el header si está loggeado o no
+  const [loggedIn, setLoggedIn] = useState(false)
 
   //funcionamiento del formulario con la api
   const formHandler = async (e) => {
@@ -148,11 +151,11 @@ const [loggedIn, setLoggedIn] = useState(false)
       <form className="Login-form" onSubmit={formHandler}>
         <a className="Login-close" onClick={toggleOpen}>x</a>
         <div className="Login-field">
-          <label for="name">Username</label>
+          <label htmlFor="name">Username</label>
           <input type="text" name="name" ref={name} placeholder="Username" />
         </div>
         <div className="Login-field">
-          <label for="pass">Password</label>
+          <label htmlFor="pass">Password</label>
           <input type="password" name="pass" ref={pass} placeholder="Password" />
         </div>
         <input className="Login-submit" type="submit" value="Sign in" />       
@@ -160,8 +163,8 @@ const [loggedIn, setLoggedIn] = useState(false)
         {/* {error && <p className="error-message">{error}</p>}  */}
       </form>
     </div>
-  );
-};
+  )
+}
 
 
   
@@ -178,16 +181,3 @@ const Li = (props) => {
 };
 
 
-const Log = (props) => {
-  const {logOpen} = props
-  return(
-    <li className="Header-li Log">
-      <a className="Header-a">
-        <span>Log</span>
-      </a>
-      <form className={`Log-form ${logOpen ? "isVisible" : ""}`}>
-
-      </form>
-    </li>
-  )
-}

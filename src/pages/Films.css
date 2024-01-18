@@ -15,7 +15,11 @@
     overflow: hidden;
     justify-content: space-between;
 }
-
+.Personal-carrousel {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
 .Popular-li {
     /* flex grow, shrink, basis*/
     flex: 0 0 calc(25% - 10px); /* 100:4 menos el margen */
