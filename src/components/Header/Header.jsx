@@ -73,7 +73,7 @@
              </li>
             
              {nav.map((eachLi) => (
-               <Li key={eachLi.id} {...eachLi} />
+               <Li key={eachLi._id} {...eachLi} />
              ))}
              {loggedIn 
                ? <Log /> //meter el Li para hacer el CRUD
@@ -88,9 +88,9 @@
  const Login = (props) => {
    const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props
 
-  //  //logica de las interacciones al hacer login
-  //  const [loading, setLoading] = useState(false)
-  //  const [error, setError] = useState("")
+    //logica de las interacciones al hacer login
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState("")
 
    // useState para diferenciar el header si está loggeado o no
    const [loggedIn, setLoggedIn] = useState(false)
@@ -157,7 +157,7 @@
   
 
  const Li = (props) => {
-   const { span, href } = props;
+   const { _id, span, href } = props;
    return (
      <li className="Header-li">
        <a className="Header-a" href={href} target="_blank">

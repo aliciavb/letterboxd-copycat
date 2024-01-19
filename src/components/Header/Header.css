@@ -1,7 +1,14 @@
 .Header {
   z-index: 2;
-  position: relative;
   background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  
+  margin: 0 auto;
+  width: 100%;
+  max-width: 950px;
 }
 .Header.isLogged{
   background-color: #14181c;
@@ -37,11 +44,7 @@
 }
 
 .Header-section {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 950px;
   height: 72px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,6 +131,11 @@ input[type=password] {
 
 /* estilos para pantallas más estrechas de 768px */
 @media (max-width: 768px) {
+
+  .Header-h1 {
+    display: none;
+  }
+  
   .Login-form {
     display: flex;
     flex-direction: column;
@@ -138,6 +146,7 @@ input[type=password] {
   .Login-form div{
     margin-bottom: .75rem;
   }
+
 }
 
 

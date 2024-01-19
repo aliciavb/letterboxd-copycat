@@ -1,5 +1,6 @@
 import { Header } from "../components/Header/Header"
 import { Hero } from "../components/Hero/Hero"
+import { Main } from "../components/Main/Main";
 
 export const Index = () => {
   
@@ -7,6 +8,7 @@ export const Index = () => {
     <div>
       <Header />
       <Hero />
+      <Main />
     </div>
   );
 }

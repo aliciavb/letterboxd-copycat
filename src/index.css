@@ -16,19 +16,7 @@ body {
     display: block;
 }
 
-h2 {
-  font-family: TiemposHeadlineWeb, Georgia,serif;
-  font-weight: 700;
-  font-size: 2.25rem;
-  line-height: 2.25rem;
-  margin: 0 0 10px;
-  color: #fff;
-  overflow-wrap: break-word;
-  font-style: inherit;
-  outline: 0;
-  padding: 0;
-  vertical-align: baseline;
-}
+
 
 
 input{
@@ -48,12 +36,22 @@ input{
   font-family: "GraphikWeb";
   font-style: normal;
   font-weight: 400;
-  src: "/assets/Graphik-Regular-Web.woff";
+  src: "/assets/fonts/Graphik-Regular-Web.woff" format("woff")
 }
+
+@font-face {
+  font-family: "GraphikWeb";
+  font-style: normal;
+  font-weight: 100;
+  src: "/assets/fonts/Graphik-Light-Web.woff" format("woff") 
+}
+
 
 @font-face {
     font-family: "TiemposHeadlineWeb";
     font-style: normal;
     font-weight: 700;
-    src:"/assets/TiemposHeadlineWeb-Bold.woff"
+    src:"/assets/fonts/TiemposHeadlineWeb-Bold.woff" format("woff")
   }
+
+
