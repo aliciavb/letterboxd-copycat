@@ -45,6 +45,13 @@ export const Main = () => {
                     height="100"
                     alt="2023 Year in review"
                     loading="lazy"
+                    className="Banner-desktop"
+                />
+                <img 
+                    src="/assets/2023-year-mobile.jpg"
+                    alt="2023 Year in review"
+                    loading="lazy"
+                    className="Banner-mobile"
                 />
             </a> 
         </div>

@@ -4,7 +4,6 @@
     max-width: 950px;
     padding: 2em 0;
 }
-
 .Films-featured{
     margin: 0 auto;
     width: 100%;
@@ -95,4 +94,37 @@
     padding-right: 1em;
     height: 2rem;
     object-fit: contain;
+}
+.Banner-desktop{
+    display: block;
+}
+.Banner-mobile{
+    display: none;
+}
+@media (max-width:768px){
+    .Main{
+        width: 90%;
+    }
+    /* en móvil solo se ven 4 featured films */
+    .Featured-carrousel .Popular-li {
+        flex: 0 0 calc(25% - 10px); 
+        margin-right: 10px;
+    }
+    .Banner-desktop{
+        display: none;
+    }
+    .Banner-mobile{
+        display: block;
+    }
+    .Highlight{
+        width: 100%;
+    }
+    .Highlight-icon{
+        width: 20%;
+    }
+    .Highlight p{
+        width: 80%;
+        line-height: 1.5rem;
+    }
+    
 }

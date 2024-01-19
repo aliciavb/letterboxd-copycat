@@ -58,7 +58,10 @@
              <li className="Header-li">
                <a className="Header-a" onClick={toggleOpen}>
                  {loggedIn ? <span>Hello, {username}</span>
-                 : <span>Sign in</span>
+                 : <span>
+                  <span className="Header-text">Sign in</span>
+                  <span className="Header-icon"><img src="/assets/icons/login-icon.svg" alt="Login" loading="lazy" /></span>
+                  </span>
                }
                </a>
                {/* meter useContext para no repetir las props */}
