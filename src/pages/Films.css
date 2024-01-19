@@ -1,5 +1,5 @@
 .Films{
-    background-color: #1E252C;
+    backdrop-filter: blur(20px);
 }
 
 .Films-popular{
@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 950px;
     
-    padding: 2em 0;
+    padding: 100px 0 0 0;
 }
 .Popular-carrousel {
     display: flex;

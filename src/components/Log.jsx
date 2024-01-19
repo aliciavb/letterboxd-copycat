@@ -41,7 +41,7 @@ const Log = () => {
   
   return (
     <li className="Header-li LogButton">
-      <a className="Header-a LogButton-a" onClick={filmToggleOpen}>
+      <a className="LogButton-a" onClick={filmToggleOpen}>
         <span>Log</span>
       </a>
       <form

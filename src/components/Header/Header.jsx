@@ -57,7 +57,7 @@
              <ul className="Header-ul">
              <li className="Header-li">
                <a className="Header-a" onClick={toggleOpen}>
-                 {loggedIn ? <span>{username}</span>
+                 {loggedIn ? <span>Hello, {username}</span>
                  : <span>Sign in</span>
                }
                </a>
@@ -76,7 +76,7 @@
                <Li key={eachLi._id} {...eachLi} />
              ))}
              {loggedIn 
-               ? <Log /> //meter el Li para hacer el CRUD
+               ? <Log /> 
                : ""}
            </ul>
          </nav>

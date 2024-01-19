@@ -105,11 +105,11 @@ const MyFilms = () => {
 
       <div className={`Edit-div ${editOpen ? "isVisible" : ""}`}>
         <h3>Edit Film</h3>
-        <form onSubmit={formEditHandler} ref={editFilm}>
+        <form className="Edit-form" onSubmit={formEditHandler} ref={editFilm}>
           <input type="hidden" id="editId" />
           <input type="text" id="editTitle" placeholder="Title" />
           <input type="number" id="editYear" placeholder="Year" />
-          <input type="submit" value="Edit Film" />
+          <input className="Edit-submit" type="submit" value="Edit Film" />
         </form>
       </div>
     </>
@@ -127,17 +127,17 @@ const Film = ({ _id, title, year, deleteFilmHandler, editHandler }) => {
       <div className="MyFilm-actions">
       <span className="MyFilm-edit">
         <button onClick={() => editHandler(_id)}>
-            <img src="/assets/edit-icon.svg" alt="edit icon" loading="lazy" />
+            <img src="/assets/icons/edit-icon.svg" alt="edit icon" loading="lazy" />
         </button>
         </span>
       <span className="MyFilm-delete">
         <button onClick={() => deleteFilmHandler(_id)}>
-            <img src="/assets/delete-icon.svg" alt="delete icon" loading="lazy" />
+            <img src="/assets/icons/delete-icon.svg" alt="delete icon" loading="lazy" />
         </button>
         </span>
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default MyFilms;
+export default MyFilms
