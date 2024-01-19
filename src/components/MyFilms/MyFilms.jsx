@@ -83,6 +83,7 @@ const MyFilms = () => {
     }
 
     editFilm.current.reset();
+    editToggleOpen()
   };
 
 

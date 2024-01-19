@@ -1,5 +1,5 @@
 .Films{
-    backdrop-filter: blur(20px);
+    overflow-x: hidden;
 }
 
 .Films-popular{
@@ -121,5 +121,9 @@
     margin: 0 5px;
 }
 
-
+@media (max-width:768px){
+    .Films-popular{
+        width: 90%;
+    }
+}
 

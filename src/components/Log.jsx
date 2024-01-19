@@ -33,6 +33,7 @@ const Log = () => {
     } catch (err) {
       console.log(err);
     }
+    filmToggleOpen()
   }
 
   //abre y cierra el formulario de log

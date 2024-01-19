@@ -159,7 +159,7 @@
  const Li = (props) => {
    const { _id, span, href } = props;
    return (
-     <li className="Header-li">
+     <li className="Header-li  mapped">
        <a className="Header-a" href={href} target="_blank">
          <span>{span}</span>
        </a>
