@@ -1,14 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
-import './MyFilms.css'
+import { useState, useEffect, useRef } from "react";
+import "./MyFilms.css";
 
 const MyFilms = () => {
-  const { VITE_URL_API } = import.meta.env
+  const { VITE_URL_API } = import.meta.env;
 
-  // useState para gestionar el array de myfilms
-  const [myFilms, setMyFilms] = useState([])
-
-  // useRefs para el formulario
-  const editFilm = useRef()
+  const [myFilms, setMyFilms] = useState([]);
+  const editFilm = useRef();
 
   // useEffect para hacer fetch en el endpoint /myfilms
   useEffect(() => {
@@ -16,33 +13,32 @@ const MyFilms = () => {
       .then((res) => res.json())
       .then((data) => setMyFilms(data))
       .catch((err) => console.log(err))
-      .finally(() => {})
-  }, [myFilms])
+      .finally(() => {});
+  }, [myFilms]);
 
-    // eliminar film (metodo delete)
-    const deleteFilmHandler = async (id) => {
-        let options = {
-            method: 'delete',
-            headers: { 'Content-type': 'application/json' },
-        }
-        
-        try{ // peticion fetch con las options de delete
-            await fetch(`${VITE_URL_API}myfilms/${id}`, options)
+  // eliminar film (metodo delete)
+  const deleteFilmHandler = async (id) => {
+    let options = {
+      method: "delete",
+      headers: { "Content-type": "application/json" },
+    };
 
-            const res = await fetch(`${VITE_URL_API}myfilms`)
-            const data = await res.json()
+    try {
+      // peticion fetch con las options de delete
+      await fetch(`${VITE_URL_API}myfilms/${id}`, options);
 
-            setMyFilms(data)
-        }catch(err) { 
-            console.error('No se ha podido eliminar', err)
-        }
+      const res = await fetch(`${VITE_URL_API}myfilms`);
+      const data = await res.json();
+
+      setMyFilms(data);
+    } catch (err) {
+      console.error("No se ha podido eliminar", err);
     }
+  };
 
-
-    //state del formulario (abierto o cerrado)
-  const [editOpen, setEditOpen] = useState(false)
-  const editToggleOpen = () => setEditOpen(!editOpen)
-
+  //state del formulario (abierto o cerrado)
+  const [editOpen, setEditOpen] = useState(false);
+  const editToggleOpen = () => setEditOpen(!editOpen);
 
   const editHandler = (id) => {
     const filmToEdit = myFilms.find((film) => film._id === id);
@@ -54,7 +50,7 @@ const MyFilms = () => {
     editYear.value = filmToEdit.year;
 
     //abre y cierra el formulario de edit
-    editToggleOpen()
+    editToggleOpen();
   };
 
   const formEditHandler = async (e) => {
@@ -68,44 +64,49 @@ const MyFilms = () => {
     };
 
     let options = {
-      method: 'put',
-      headers: { 'Content-type': 'application/json' },
+      method: "put",
+      headers: { "Content-type": "application/json" },
       body: JSON.stringify(updatedFilm),
     };
 
     try {
-      const response = await fetch(`${VITE_URL_API}myfilms/${editId.value}`, options);
+      const response = await fetch(
+        `${VITE_URL_API}myfilms/${editId.value}`,
+        options
+      );
       const updatedMyFilms = await response.json();
 
       setMyFilms(updatedMyFilms);
     } catch (error) {
-      console.error('Error updating film:', error);
+      console.error("Error updating film:", error);
     }
 
     editFilm.current.reset();
-    editToggleOpen()
+    editToggleOpen();
   };
-
-
 
   return (
     <>
       <div className="List-div">
         <ul>
           {myFilms.length === 0 ? (
-            <li className='MyFilm-li'>
-              You haven't added any seen films.  
+            <li className="MyFilm-li">
+              You haven't added any seen films.
               <br />
-              Add them using the Log button!</li>
+              Add them using the Log button!
+            </li>
           ) : (
             myFilms.map((film) => (
-              <Film key={film._id} {...film} deleteFilmHandler={deleteFilmHandler} editHandler={editHandler} />
+              <Film
+                key={film._id}
+                {...film}
+                deleteFilmHandler={deleteFilmHandler}
+                editHandler={editHandler}
+              />
             ))
           )}
         </ul>
       </div>
-
-      
 
       <div className={`Edit-div ${editOpen ? "isVisible" : ""}`}>
         <h3 className="Edit-h3">Edit Film</h3>
@@ -129,19 +130,37 @@ const Film = ({ _id, title, year, deleteFilmHandler, editHandler }) => {
         </span>
       </div>
       <div className="MyFilm-actions">
-      <span className="MyFilm-edit">
-        <button onClick={() => editHandler(_id)}>
-            <img src="/assets/icons/edit-icon.svg" alt="edit icon" loading="lazy" />
-        </button>
-        </span>
-      <span className="MyFilm-delete">
-        <button onClick={() => deleteFilmHandler(_id)}>
-            <img src="/assets/icons/delete-icon.svg" alt="delete icon" loading="lazy" />
-        </button>
-        </span>
+        <EditBtn editHandler={editHandler} _id={_id} />
+        <DeleteBtn deleteFilmHandler={deleteFilmHandler} _id={_id} />
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default MyFilms
+const EditBtn = (props) => {
+  const { _id, editHandler } = props;
+  return (
+    <span className="MyFilm-edit">
+      <button onClick={() => editHandler(_id)}>
+        <img src="/assets/icons/edit-icon.svg" alt="edit icon" loading="lazy" />
+      </button>
+    </span>
+  );
+};
+
+const DeleteBtn = (props) => {
+  const { _id, deleteFilmHandler } = props;
+  return (
+    <span className="MyFilm-delete">
+      <button onClick={() => deleteFilmHandler(_id)}>
+        <img
+          src="/assets/icons/delete-icon.svg"
+          alt="delete icon"
+          loading="lazy"
+        />
+      </button>
+    </span>
+  );
+};
+
+export default MyFilms;

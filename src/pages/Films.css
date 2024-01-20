@@ -1,178 +1,176 @@
-.Films{
-    overflow-x: hidden;
+.Films {
+  overflow-x: hidden;
 }
 
-.Films-popular{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 950px;
+.Films-popular {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 950px;
 
-    padding: 10px 0 0 0;
+  padding: 10px 0 0 0;
 }
-.Films-personal{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 950px;
-    
-    padding: 100px 0 0 0;
+.Films-personal {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 950px;
+
+  padding: 100px 0 0 0;
 }
 .Popular-carrousel {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    overflow-x: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  overflow-x: hidden;
 }
 .Personal-carrousel {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
 .Popular-li {
-    /* flex grow, shrink, basis*/
-    flex: 0 0 calc(25% - 10px); /* 100:4 menos el margen */
-    margin-right: 10px; 
+  /* flex grow, shrink, basis*/
+  flex: 0 0 calc(25% - 10px); /* 100:4 menos el margen */
+  margin-right: 10px;
 }
 
 /* Para que la última card llegue hasta el borde del wrapper */
 .Popular-li:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
-.Popular-intro{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--grey-dark);
-    color: var(--grey-regular);
-    font-family: var(--sans-font);
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: .075em;
-    margin-bottom: .9rem;
-    margin-top: 0;
-    padding-bottom: .35rem;
-    text-transform: uppercase;
+.Popular-intro {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--grey-dark);
+  color: var(--grey-regular);
+  font-family: var(--sans-font);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  margin-bottom: 0.9rem;
+  margin-top: 0;
+  padding-bottom: 0.35rem;
+  text-transform: uppercase;
 }
-.Popular-intro h3, span{
-    font-size: .8rem;
-}
-
-.Personal-intro{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--grey-dark);
-    color: var(--grey-regular);
-    font-family: var(--sans-font);
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: .075em;
-    margin-bottom: .9rem;
-    margin-top: 0;
-    padding-bottom: .35rem;
-    text-transform: uppercase;
-}
-.Personal-intro h3, span{
-    font-size: .8rem;
+.Popular-intro h3,
+span {
+  font-size: 0.8rem;
 }
 
-.Film-poster{
-    width: 230px;
-    background: var(--bg-dark);
+.Personal-intro {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--grey-dark);
+  color: var(--grey-regular);
+  font-family: var(--sans-font);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  margin-bottom: 0.9rem;
+  margin-top: 0;
+  padding-bottom: 0.35rem;
+  text-transform: uppercase;
 }
-.Film-poster:hover{
-    border-radius: 3px;
-    border: 2px solid var(--verde);
-    transition: border .1s linear;
+.Personal-intro h3,
+span {
+  font-size: 0.8rem;
 }
-.Film-poster img{
-    border-radius: 3px;
-    display: block;
+
+.Film-poster {
+  width: 230px;
+  background: var(--bg-dark);
 }
-.Film-a{
-    position: relative;
+.Film-poster:hover {
+  border-radius: 3px;
+  border: 2px solid var(--verde);
+  transition: border 0.1s linear;
+}
+.Film-poster img {
+  border-radius: 3px;
+  display: block;
+}
+.Film-a {
+  position: relative;
 }
 
 /* Tooltip con el titulo de la peli */
-.Film-info{
-    position: relative;
-  }
-  
+.Film-info {
+  position: relative;
+}
+
 /* Texto del tooltip oculto */
 .Film-info .Film-text {
-    opacity: 0;
-  }
+  opacity: 0;
+}
 
 /* Info del tooltip */
 .Film-info:hover .Film-text {
+  background-color: var(--grey-semidark);
+  color: var(--white);
+  height: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  font-family: var(--sans-font);
+  font-size: 0.8rem;
+  font-weight: 100;
+  position: absolute;
+  bottom: 8px;
+  z-index: 1;
 
-    background-color:var(--grey-semidark);
-    color: var(--white);
-    height: fit-content;
-    padding: .5rem 1rem;
-    border-radius: 3px;
-    font-family: var(--sans-font);
-    font-size: .8rem;
-    font-weight: 100;
-    position: absolute;
-    bottom: 8px;
-    z-index: 1;
-    
-    opacity: 1;
-    transition: all .3s ease;
-    transition-delay: 1s;
-    transition-property: opacity;
+  opacity: 1;
+  transition: all 0.3s ease;
+  transition-delay: 1s;
+  transition-property: opacity;
 }
 
-  /* flecha debajo del tooltip */
-  .Film-info .Film-text::after {
-    content: " ";
-    position: absolute;
-    top: 105%;
-    left: 50%;
-    margin-left: -10px;
-    border-width: 6px;
-    border-style: solid;
-    border-color: #678 transparent transparent transparent;
+/* flecha debajo del tooltip */
+.Film-info .Film-text::after {
+  content: " ";
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #678 transparent transparent transparent;
+}
+
+.Film-stats {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.Film-stats img {
+  width: auto;
+  height: 0.7rem;
+  margin: 0 5px;
+}
+.Film-stat {
+  display: inline-flex;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .Films-popular {
+    width: 90%;
+    padding: 40px 0 0 0;
   }
-  
-
-
-.Film-stats{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    padding: .5rem 0;
-    font-size: .9rem;
+  .Films-personal {
+    width: 90%;
+  }
+  .Popular-carrousel {
+    flex-direction: column;
+  }
+  .Film-poster {
+    width: 70vw;
+    margin: 0 auto;
+  }
+  .Popular-li {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
 }
-.Film-stats img{
-    width: auto;
-    height:.7rem;
-    margin: 0 5px;
-}
-.Film-stat{
-    display: inline-flex;
-    margin: 0 5px;
-}
-
-@media (max-width:768px){
-    .Films-popular{
-        width: 90%;
-        padding: 40px 0 0 0;
-    }
-    .Films-personal{
-        width: 90%;
-    }
-    .Popular-carrousel {
-        flex-direction: column;
-    }
-    .Film-poster {
-        width: 70vw;
-        margin: 0 auto;
-    }
-    .Popular-li{
-        margin-right: 0;
-        margin-bottom: 2rem;
-    }
-}
-

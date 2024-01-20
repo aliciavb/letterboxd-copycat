@@ -1,15 +1,13 @@
-import { useState, useRef, useEffect  } from "react";
-import './Log.css'
+import { useState, useRef, useEffect } from "react";
+import "./Log.css";
 
 const Log = () => {
-  const { VITE_URL_API } = import.meta.env
-  
+  const { VITE_URL_API } = import.meta.env;
 
-  const [myFilms, setmyFilms] = useState([])
+  const [myFilms, setmyFilms] = useState([]);
 
-  const addTitle = useRef()
-  const addYear  = useRef()
-
+  const addTitle = useRef();
+  const addYear = useRef();
 
   const addFilmHandler = async (e) => {
     e.preventDefault();
@@ -20,7 +18,7 @@ const Log = () => {
     };
 
     let options = {
-      method: 'post',
+      method: "post",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(newFilm),
     };
@@ -28,18 +26,18 @@ const Log = () => {
     try {
       const res = await fetch(`${VITE_URL_API}myfilms`, options);
       const myFilmsData = await res.json();
-  
+
       setmyFilms(myFilmsData);
     } catch (err) {
       console.log(err);
     }
-    filmToggleOpen()
-  }
+    filmToggleOpen();
+  };
 
   //abre y cierra el formulario de log
-  const [logOpen, setLogOpen] = useState(false)
-  const filmToggleOpen = () => setLogOpen(!logOpen)
-  
+  const [logOpen, setLogOpen] = useState(false);
+  const filmToggleOpen = () => setLogOpen(!logOpen);
+
   return (
     <li className="Header-li LogButton">
       <a className="LogButton-a" onClick={filmToggleOpen}>
@@ -64,9 +62,6 @@ const Log = () => {
       </form>
     </li>
   );
+};
 
-}
-
-
-
-export default Log
+export default Log;

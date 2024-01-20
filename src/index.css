@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
-:root{
+:root {
   --verde: #00c030;
   --naranja: #ff9010;
   --azul: #40bcf4;
   --bg-dark: #14181c;
   --grey-light: #d8e0e8;
-  --grey-regular:#99aabb;
+  --grey-regular: #99aabb;
   --grey-semidark: #667788;
   --grey-dark: #445566;
   --white: #fafafa;
-  --sans-font: "GraphikWeb",sans-serif;
-  --serif-font: "TiemposHeadlineWeb",Georgia,serif;
+  --sans-font: "GraphikWeb", sans-serif;
+  --serif-font: "TiemposHeadlineWeb", Georgia, serif;
 }
 
 body {
@@ -43,15 +43,13 @@ body {
   font-family: "GraphikWeb";
   font-style: normal;
   font-weight: 100;
-  src: "/assets/fonts/Graphik-Light-Web.woff" format("woff") 
+  src: "/assets/fonts/Graphik-Light-Web.woff" format("woff")
 }
 
 
 @font-face {
-    font-family: "TiemposHeadlineWeb";
-    font-style: normal;
-    font-weight: 700;
-    src:"/assets/fonts/TiemposHeadlineWeb-Bold.woff" format("woff")
-  }
-
-
+  font-family: "TiemposHeadlineWeb";
+  font-style: normal;
+  font-weight: 700;
+  src: "/assets/fonts/TiemposHeadlineWeb-Bold.woff" format("woff")
+}

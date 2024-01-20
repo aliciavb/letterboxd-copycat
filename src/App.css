@@ -12,6 +12,7 @@ Y elimino las propiedades que no necesito, añado mis variables en index.css*/
     transition: none !important;
   }
 }
+
 /* Reseteamos los margin y paddings de todas las etiquetas */
 * {
   margin: 0;
@@ -31,6 +32,7 @@ figure {
   max-width: 100%;
   width: 100%;
   display: block;
+  object-fit: cover;
 }
 
 /* Reseteamos los enlaces para funcionar como cajas... */
@@ -94,6 +96,7 @@ q:after {
   background-color: var(--bg-dark);
   color: var(--white);
 }
+
 ::selection {
   background-color: var(--bg-dark);
   color: var(--white);
