@@ -27,6 +27,14 @@
 
 }
 
+
+.MyFilm-info{
+    max-width: 70%;
+}
+.MyFilm-text{
+    word-break:break-all;
+}
+
 .MyFilm-actions {
     display: flex;
     flex-direction: row;
