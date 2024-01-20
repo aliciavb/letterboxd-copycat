@@ -6,13 +6,17 @@
   *     - "/" entra a Index.jsx
   *     - "/films" entra a Films.jsx
 --------------------------------------*/
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Index } from "./pages/Index"
+import { Films } from "./pages/Films"
+import "./App.css"
 
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-
-import "./App.css";
-import { Index } from "./pages/Index";
-import { Films } from "./pages/Films";
-
+/**
+* React-router
+*
+* route   {/}       carga la página <Index />
+* route   {/films}  carga la página <Films />
+*/
 function App() {
   return (
     <BrowserRouter>

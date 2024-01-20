@@ -3,12 +3,13 @@
   *   Componente para la home ("/"). Se muestra debajo del Header
   *   Estructura: 
   *     - Imagen de cabecera (en móvil el logo se muestra aquí)
-  *     - Info de descripción de la app
-  *     - HeroMetadata contiene el título de la película de la imagen
+  *     - HeroDiv textos de descripción de la app
 ------------------------------------------------------------------------*/
-
 import "./Hero.css";
 
+/**
+* Este componente carga el Hero que aparece en "/"
+*/
 export const Hero = () => {
   return (
     <div className="Hero">
@@ -30,7 +31,9 @@ export const Hero = () => {
   );
 };
 
-
+/**
+* Este componente carga los textos de inicio de la app
+*/
 const HeroDiv = () => {
   return(
     <div className="Hero-div">
@@ -50,6 +53,9 @@ const HeroDiv = () => {
   )
 }
 
+/**
+* Este componente contiene el título de la película de la imagen
+*/
 const HeroMetadata = () => {
   return(
     <p className="Hero-metadata">

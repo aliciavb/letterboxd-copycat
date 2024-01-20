@@ -11,7 +11,6 @@
   *     - Lista vacía con el componente MyFilms (Gestor)
   *     - Lista de "popular films" con el componente PopularLi
 ------------------------------------------------------------------------*/
-
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { Header } from "../components/Header/Header"
@@ -19,6 +18,16 @@ import { PopularLi } from "../components/PopularLi"
 import MyFilms from "../components/MyFilms/MyFilms"
 import "./Films.css"
 
+/**
+* Esta es la página que contiene el gestor
+* param     {VITE_URL_API}          variable de entorno
+* hook      {useNavigate}           para redirigir a inicio si no está loggeado
+* hook      {useEffect}             comprueba los datos de localStorage
+* hook      {useEffect, useState}   para buscar los elementos del array de /films
+* component {Header}                importa el Header
+* component {MyFilms}               importa el componente MyFilms (CRUD)
+* component {PopularLi}             importa el componente PopularLi (lista de destacadas)
+*/
 export const Films = () => {
   const { VITE_URL_API } = import.meta.env
 
@@ -28,20 +37,16 @@ export const Films = () => {
     if (!localStorage.getItem("usuarios")) {
       navigate("/");
     }
-  }, []);
+  }, [])
 
-  // useState para buscar los elementos del array de films
   const [films, setFilms] = useState([]);
 
-  // useEffect para hacer fetch en el endpoint /films
   useEffect(() => {
     fetch(`${VITE_URL_API}films`)
       .then((res) => res.json())
-      .then((data) => {
-        setFilms(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      .then((data) => { setFilms(data)})
+      .catch((err) => console.log(err))
+  }, [])
 
   return (
     <div className="Films">
@@ -71,5 +76,5 @@ export const Films = () => {
         </div>
       </section>
     </div>
-  );
-};
+  )
+}

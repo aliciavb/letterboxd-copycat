@@ -12,6 +12,14 @@
 import { useState, useRef } from "react";
 import "./Log.css";
 
+/**
+* Este componente es el botón que tiene el formulario para hacer POST
+* param     {VITE_URL_API}       variable de entorno
+* hook      {useState}           para guardar las películas añadidas 
+* hook      {useRef}             para rellenar con los neuvos datos el formulario 
+* function  {addFilmHandler}     para añadir una película (method: POST )
+* function  {filmToggleOpen}     para abrir el popup con el formulario
+*/
 const Log = () => {
   const { VITE_URL_API } = import.meta.env;
 
@@ -32,7 +40,7 @@ const Log = () => {
       method: "post",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(newFilm),
-    };
+    }
 
     try {
       const res = await fetch(`${VITE_URL_API}myfilms`, options);
@@ -42,10 +50,9 @@ const Log = () => {
     } catch (err) {
       console.log(err);
     }
-    filmToggleOpen();
-  };
+    filmToggleOpen()
+  }
 
-  //abre y cierra el formulario de Log
   const [logOpen, setLogOpen] = useState(false);
   const filmToggleOpen = () => setLogOpen(!logOpen);
 

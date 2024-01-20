@@ -9,18 +9,24 @@
   *     - Poster de la película
   *     - Componente FilmStats con los datos 
 ------------------------------------------------------------------------*/
-
 import { useEffect, useState } from "react";
 
+/**
+* Este componente es cada película del endpoint /films (películas destacadas)
+* param     {VITE_URL_API}       variable de entorno
+* props     {id,src, alt, href,
+            title, year, views,
+            lists, likes}        datos de cada película en la bbdd
+* hook      {useState}           busca los elementos del array de films
+* hook      {useEffect}          hace fetch en el endpoint /films
+* component {FilmStats}          contiene más datos de la película
+*/
 export const PopularLi = (props) => {
   const { id, src, alt, href, title, year, views, lists, likes } = props
-
   const { VITE_URL_API } = import.meta.env
 
-  // useState para buscar los elementos del array de films
   const [films, setFilms] = useState([]);
 
-  // useEffect para hacer fetch en el endpoint /films
   useEffect(() => {
     fetch(`${VITE_URL_API}films`)
       .then((res) => res.json())
@@ -48,8 +54,12 @@ export const PopularLi = (props) => {
   );
 };
 
+/**
+* Este componente muestra los datos de views, likes y lists de cada pelicula
+* props   {views, lists, likes}   datos de la bbdd
+*/
 const FilmStats = (props) => {
-  const { id, views, lists, likes } = props;
+  const { views, lists, likes } = props
   return (
     <>
       <li className="Film-stat">
@@ -66,4 +76,4 @@ const FilmStats = (props) => {
       </li>
     </>
   );
-};
+}

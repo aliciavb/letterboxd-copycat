@@ -19,6 +19,16 @@ import { useState, useEffect, useRef } from "react"
 import Log from "../Log"
 import "./Header.css"
 
+/**
+* Este componente carga el Header
+* param  {VITE_URL_API}  variable de entorno
+* hook   {navigate}      navega a /films si los datos son correctos
+* prop   {name, pass}    son los inputs del formulario
+* hook   {useState}      para hacer el map en nav y abir el popup
+* hook   {toggleOpen}    abre y cierra el popup
+* hook   {useEffect}     para hacer fetch en el endpoint /nav
+* hook   {useEffect}     comprueba si hay usuarios en localStorage y entra a films
+*/
 export const Header = () => {
   const { VITE_URL_API } = import.meta.env;
 
@@ -26,17 +36,13 @@ export const Header = () => {
   const name = useRef("")
   const pass = useRef("")
 
-  // useState para buscar los elementos del nav menu
   const [nav, setNav] = useState([])
-  //abre y cierra el popup de login
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
 
-  // useState para diferenciar el header si está loggeado o no
   const [loggedIn, setLoggedIn] = useState(false)
   const [username, setUsername] = useState("")
 
-  // useEffect para hacer fetch en el endpoint /nav
   useEffect(() => {
     fetch(`${VITE_URL_API}nav`)
       .then((res) => res.json())
@@ -44,7 +50,6 @@ export const Header = () => {
       .catch((err) => console.log(err));
   }, [])
 
-  //comprueba si hay usuarios en localStorage y entra a films
   useEffect(() => {
     if (localStorage.getItem("usuarios")) {
       navigate("/films");
@@ -101,33 +106,39 @@ export const Header = () => {
   )
 }
 
+/**
+* Este componente carga el formulario de Login
+* prop   {open}          gestiona el estado del popup
+* prop   {name, pass}    son los inputs del formulario
+* prop   {VITE_URL_API}  variable de entorno
+* hook   {navigate}      navega a /films si los datos son correctos
+* hook   {toggleOpen}    abre y cierra el popup
+* hook   {useState}      para cambiar el header si está loggeado el usuario
+* hook   {formHandler}   custom hook funcionamiento del formulario con la api
+*/
 const Login = (props) => {
   const { open, name, pass, VITE_URL_API, navigate, toggleOpen } = props;
 
-  //logica de las interacciones al hacer login
+  /* Esto está sin terminar, sería la logica de las interacciones al hacer login  */
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // useState para diferenciar el header si está loggeado o no
   const [loggedIn, setLoggedIn] = useState(false);
 
-  //funcionamiento del formulario con la api
   const formHandler = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
 
     let nuevo = {
       name: name.current.value,
       pass: pass.current.value,
-    };
+    }
 
     let options = {
       method: "post",
       body: JSON.stringify(nuevo),
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
+      headers: { "Content-type": "application/json", }
+    }
 
     fetch(VITE_URL_API, options)
       .then((res) => res.json())
@@ -140,8 +151,6 @@ const Login = (props) => {
           console.log("Los datos son incorrectos");
           setError("Los datos introducidos son incorrectos");
         }
-
-        // Me faltaría hacer un boton de cerrar sesion con localStorage.removeItem("usuarios", JSON.stringify(data));
       })
       .catch((err) => console.log(err));
   }
@@ -167,8 +176,13 @@ const Login = (props) => {
   )
 }
 
+/**
+* Este componente carga los elementos del menú
+* prop   {span, href}    son los datos que tiene cada objeto de la bbdd
+* clase  {mapped}        clase css para no mostrar estos Li en móvil 
+*/
 const Li = (props) => {
-  const { _id, span, href } = props;
+  const { span, href } = props;
   return (
     <li className="Header-li  mapped">
       <a className="Header-a" href={href} target="_blank">
