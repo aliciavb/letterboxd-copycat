@@ -105,7 +105,7 @@ const MyFilms = () => {
       
 
       <div className={`Edit-div ${editOpen ? "isVisible" : ""}`}>
-        <h3>Edit Film</h3>
+        <h3 className="Edit-h3">Edit Film</h3>
         <form className="Edit-form" onSubmit={formEditHandler} ref={editFilm}>
           <input type="hidden" id="editId" />
           <input type="text" id="editTitle" placeholder="Title" />

@@ -6,14 +6,21 @@
     margin: 0 auto;
     width: 100%;
     max-width: 950px;
+
+    padding: 10px 0 0 0;
+}
+.Films-personal{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 950px;
     
     padding: 100px 0 0 0;
 }
 .Popular-carrousel {
     display: flex;
     flex-flow: row nowrap;
-    overflow: hidden;
     justify-content: space-between;
+    overflow-x: hidden;
 }
 .Personal-carrousel {
     display: flex;
@@ -35,33 +42,55 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    border-bottom: 1px solid #456;
-    color: #9ab;
-    font-family: "GraphikWeb", sans-serif;
+    border-bottom: 1px solid var(--grey-dark);
+    color: var(--grey-regular);
+    font-family: var(--sans-font);
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: .075em;
-    margin-bottom: 15px;
+    margin-bottom: .9rem;
     margin-top: 0;
-    padding-bottom: 5px;
+    padding-bottom: .35rem;
     text-transform: uppercase;
 }
 .Popular-intro h3, span{
     font-size: .8rem;
 }
 
+.Personal-intro{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--grey-dark);
+    color: var(--grey-regular);
+    font-family: var(--sans-font);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .075em;
+    margin-bottom: .9rem;
+    margin-top: 0;
+    padding-bottom: .35rem;
+    text-transform: uppercase;
+}
+.Personal-intro h3, span{
+    font-size: .8rem;
+}
+
 .Film-poster{
     width: 230px;
-    background: #161718;
+    background: var(--bg-dark);
 }
 .Film-poster:hover{
     border-radius: 3px;
-    border: 2px solid #00e054;
+    border: 2px solid var(--verde);
     transition: border .1s linear;
 }
 .Film-poster img{
     border-radius: 3px;
     display: block;
+}
+.Film-a{
+    position: relative;
 }
 
 /* Tooltip con el titulo de la peli */
@@ -69,21 +98,32 @@
     position: relative;
   }
   
-/* Texto del tooltip */
+/* Texto del tooltip oculto */
 .Film-info .Film-text {
     opacity: 0;
-    background-color: #678;
-    color: #fff;
-    text-align: center;
+  }
+
+/* Info del tooltip */
+.Film-info:hover .Film-text {
+
+    background-color:var(--grey-semidark);
+    color: var(--white);
+    height: fit-content;
     padding: .5rem 1rem;
     border-radius: 3px;
-    font-family: "GraphikWeb",sans-serif;
-    font-size:.8rem;
+    font-family: var(--sans-font);
+    font-size: .8rem;
     font-weight: 100;
     position: absolute;
+    bottom: 8px;
     z-index: 1;
-    top: -3rem;
-  }
+    
+    opacity: 1;
+    transition: all .3s ease;
+    transition-delay: 1s;
+    transition-property: opacity;
+}
+
   /* flecha debajo del tooltip */
   .Film-info .Film-text::after {
     content: " ";
@@ -96,13 +136,7 @@
     border-color: #678 transparent transparent transparent;
   }
   
-  /* mostrar titulo en hover */
-  .Film-info:hover .Film-text {
-    opacity: 1;
-    transition: all .3s ease;
-    transition-delay: 1s;
-    transition-property: opacity;
-  }
+
 
 .Film-stats{
     display: flex;
@@ -123,6 +157,10 @@
 
 @media (max-width:768px){
     .Films-popular{
+        width: 90%;
+        padding: 40px 0 0 0;
+    }
+    .Films-personal{
         width: 90%;
     }
 }

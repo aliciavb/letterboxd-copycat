@@ -32,6 +32,16 @@ export const Films = () => {
     return (
       <div className="Films">
         <Header />
+        <section className="Films-personal">
+          <div className="Personal-intro">
+            <h3>Your seen films</h3>
+            <span>See all</span>
+          </div>
+          <div className="Popular-wrapper Personal-wrapper">
+            {/* botones prev y next para carrusel */}
+                <MyFilms VITE_URL_API={VITE_URL_API} />
+          </div>
+        </section>
         <section className="Films-popular">
           <div className="Popular-intro">
             <h3>Popular films this week</h3>
@@ -46,16 +56,6 @@ export const Films = () => {
                 ))}
               </ul>
             </div>
-          </div>
-        </section>
-        <section className="Films-popular Films-personal">
-          <div className="Popular-intro Personal-intro">
-            <h3>Your seen films</h3>
-            <span>See all</span>
-          </div>
-          <div className="Popular-wrapper Personal-wrapper">
-            {/* botones prev y next para carrusel */}
-                <MyFilms VITE_URL_API={VITE_URL_API} />
           </div>
         </section>
       </div>

@@ -22,7 +22,7 @@ export const PopularLi = (props) => {
             <div className="Film-poster">
                 <div className="Film-info" >
                     <img src={src} alt={alt} loading='lazy'/>
-                    <a href={href} target='_blank'>
+                    <a className="Film-a" href={href} target='_blank'>
                         <span className="Film-text">{title} ({year})</span>
                     </a>
                 </div>
