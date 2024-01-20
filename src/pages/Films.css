@@ -134,7 +134,7 @@ span {
   margin-left: -10px;
   border-width: 6px;
   border-style: solid;
-  border-color: #678 transparent transparent transparent;
+  border-color: var(--grey-semidark) transparent transparent transparent;
 }
 
 .Film-stats {
