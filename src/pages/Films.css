@@ -163,5 +163,16 @@
     .Films-personal{
         width: 90%;
     }
+    .Popular-carrousel {
+        flex-direction: column;
+    }
+    .Film-poster {
+        width: 70vw;
+        margin: 0 auto;
+    }
+    .Popular-li{
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
 }
 
