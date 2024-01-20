@@ -1,3 +1,13 @@
+/* ---------------Log.css-----------------------
+Contiene los estilos del botón de Log films
+- Botón
+    - Icono del botón
+- Formulario
+    - Inputs
+    - Submit
+- Banner
+--------------------------------------------------*/
+
 .LogButton {
   box-sizing: border-box;
   line-height: 13px;

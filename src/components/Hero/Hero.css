@@ -1,3 +1,12 @@
+/* ---------------Hero.css-----------------------
+Contenido que aparece en /, entre el Header y el Main
+- Imagen
+- Máscara para hacer efecto gradiente por los bordes
+- Texto sobre la app y datos de la imagen
+- CTA
+- Media query para pantallas de menos de 768px
+--------------------------------------------------*/
+
 .Hero {
   left: 50%;
   position: relative;

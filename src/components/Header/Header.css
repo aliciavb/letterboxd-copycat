@@ -1,3 +1,12 @@
+/* ---------------Header.css-----------------------
+Primer contenido que aparece. Contiene el menú
+- Cambios si el usuario está loggeado
+- Logotipo de la app
+- Menú de navegación
+  - Cada elemento del menú
+- Botón de Log
+- Media query para pantallas de menos de 768px
+--------------------------------------------------*/
 .Header {
   z-index: 2;
   background-color: transparent;
@@ -143,7 +152,6 @@ input[type="password"] {
   display: block;
 }
 
-/* estilos para pantallas más estrechas de 768px */
 @media (max-width: 768px) {
   .Header-section {
     height: 55px;

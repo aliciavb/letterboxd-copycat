@@ -1,3 +1,13 @@
+/* -----------------------------------------------
+Films.css
+- Wrapper de las listas de películas
+- Texto introductorio de cada lista
+- Cada película de la lista
+- Poster de la película
+- Info de la película
+
+- Media query para pantallas de menos de 768px
+--------------------------------------------------*/
 .Films {
   overflow-x: hidden;
 }

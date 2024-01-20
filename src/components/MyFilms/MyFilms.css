@@ -1,3 +1,12 @@
+/* -----------------------------------------------
+MyFilms.css
+- Cada elemento li 
+- Texto de cada película añadida
+- Botones de editar y eliminar
+- Formulario para editar
+- Media query para pantallas de menos de 768px
+--------------------------------------------------*/
+
 .MyFilm-li {
   display: flex;
   flex-direction: row;
