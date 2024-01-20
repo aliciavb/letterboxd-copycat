@@ -93,7 +93,10 @@ const MyFilms = () => {
       <div className="List-div">
         <ul>
           {myFilms.length === 0 ? (
-            <li className='MyFilm-li'>You haven't added any seen films. Add them using the Log button!</li>
+            <li className='MyFilm-li'>
+              You haven't added any seen films.  
+              <br />
+              Add them using the Log button!</li>
           ) : (
             myFilms.map((film) => (
               <Film key={film._id} {...film} deleteFilmHandler={deleteFilmHandler} editHandler={editHandler} />

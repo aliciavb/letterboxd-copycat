@@ -6,6 +6,9 @@
     padding: 1em 0;
     border-bottom: 1px solid #2c3440;
 }
+.MyFilm-li br{
+    display: none;
+}
 
 .MyFilm-text {
     color: #fff;
@@ -92,6 +95,12 @@ input[type="number"] {
 }
 
 @media (max-width:768px) {
+    .MyFilm-li{
+        line-height: 1.5rem;
+    }
+    .MyFilm-li br{
+        display: block;
+    }
     .Edit-div.isVisible {
         width: 100%;
         display: block;
