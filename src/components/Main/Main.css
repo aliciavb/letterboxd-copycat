@@ -1,16 +1,18 @@
-.Main{
+.Main {
     margin: 0 auto;
     width: 100%;
     max-width: 950px;
     padding: 2em 0;
 }
-.Films-featured{
+
+.Films-featured {
     margin: 0 auto;
     width: 100%;
     max-width: 950px;
-    
+
     padding: 2em 0;
 }
+
 .Featured-carrousel {
     display: flex;
     flex-flow: row nowrap;
@@ -29,28 +31,30 @@
 }
 
 
-.Featured-carrousel .Film-poster{
+.Featured-carrousel .Film-poster {
     width: auto;
     background: #161718;
 }
 
-.Featured-carrousel .Film-poster img{
+.Featured-carrousel .Film-poster img {
     border-radius: 3px;
 }
 
 
-.Featured-carrousel .Film-poster{
+.Featured-carrousel .Film-poster {
     background: #161718;
 }
-.Featured-carrousel .Film-poster:hover{
+
+.Featured-carrousel .Film-poster:hover {
     border: 0
 }
-.Featured-carrousel .Film-stat{
+
+.Featured-carrousel .Film-stat {
     display: none;
 }
 
-.Main-tagline{
-    font-family: "GraphikWeb",sans-serif;
+.Main-tagline {
+    font-family: "GraphikWeb", sans-serif;
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: .075em;
@@ -58,27 +62,30 @@
     margin: 20px 0 10px;
     text-transform: uppercase;
 }
-.Main-highlights{
+
+.Main-highlights {
     margin: 0 auto;
     width: 100%;
     max-width: 950px;
-    
+
     padding: 2em 0;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.Highlights{
+
+.Highlights {
     margin: 0 auto;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.Highlight{
+
+.Highlight {
     border: none;
-    box-shadow: inset 0 1px 0 hsla(0,0%,100%,.1);
+    box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, .1);
     box-sizing: border-box;
     display: flex;
     margin-bottom: 10px;
@@ -89,42 +96,65 @@
 
     border-radius: 3px;
 }
-.Highlight-icon{
+
+.Highlight-icon {
     width: auto;
     padding-right: 1em;
     height: 2rem;
     object-fit: contain;
 }
-.Banner-desktop{
+
+.Banner-desktop {
     display: block;
 }
-.Banner-mobile{
+
+.Banner-mobile {
     display: none;
 }
-@media (max-width:768px){
-    .Main{
+
+@media (max-width:768px) {
+    .Main {
         width: 90%;
     }
+
     /* en móvil solo se ven 4 featured films */
     .Featured-carrousel .Popular-li {
-        flex: 0 0 calc(25% - 10px); 
+        flex: 0 0 calc(25% - 10px);
         margin-right: 10px;
     }
-    .Banner-desktop{
+
+    .Banner-desktop {
         display: none;
     }
-    .Banner-mobile{
+
+    .Banner-mobile {
         display: block;
     }
-    .Highlight{
+
+    .Highlight {
         width: 100%;
     }
-    .Highlight-icon{
+
+    .Highlight-icon {
         width: 20%;
     }
-    .Highlight p{
+
+    .Highlight p {
         width: 80%;
         line-height: 1.5rem;
     }
-    
+
+    .Main .Film-text {
+        display: none;
+    }
+
+    .Main .Film-stats {
+        display: none;
+    }
+
+    .Main .Popular-li {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
 }
