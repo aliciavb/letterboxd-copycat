@@ -170,9 +170,15 @@
         width: 70vw;
         margin: 0 auto;
     }
+    .Film-text{
+        display: none;
+    }
+    .Film-stats{
+        display: none;
+      }
     .Popular-li{
         margin-right: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 }
 
