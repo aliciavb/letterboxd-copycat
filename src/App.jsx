@@ -1,4 +1,13 @@
-import { Router, Routes, Route, BrowserRouter } from "react-router-dom";
+/*-------------------------------------
+  * App.jsx
+  *   Hooks:
+  *     - Routes, Route, BrowserRouter
+  *   Rutas: 
+  *     - "/" entra a Index.jsx
+  *     - "/films" entra a Films.jsx
+--------------------------------------*/
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import "./App.css";
 import { Index } from "./pages/Index";

@@ -1,9 +1,21 @@
+/*-----------------------------------------------------------------------
+  * PopularLi.jsx
+  *   Componente que muestra una lista de peliculas con poster y stats
+  *   Hooks:
+  *     - useEffect, useState
+  *   Datos:
+  *     - API fetch a {VITE_URL_API}/films
+  *   Estructura: 
+  *     - Poster de la película
+  *     - Componente FilmStats con los datos 
+------------------------------------------------------------------------*/
+
 import { useEffect, useState } from "react";
 
 export const PopularLi = (props) => {
-  const { VITE_URL_API } = import.meta.env;
+  const { id, src, alt, href, title, year, views, lists, likes } = props
 
-  const { id, src, alt, href, title, year, views, lists, likes } = props;
+  const { VITE_URL_API } = import.meta.env
 
   // useState para buscar los elementos del array de films
   const [films, setFilms] = useState([]);
@@ -12,11 +24,9 @@ export const PopularLi = (props) => {
   useEffect(() => {
     fetch(`${VITE_URL_API}films`)
       .then((res) => res.json())
-      .then((data) => {
-        setFilms(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      .then((data) => { setFilms(data)})
+      .catch((err) => console.log(err))
+  }, [])
 
   return (
     <li className="Popular-li">
@@ -31,7 +41,7 @@ export const PopularLi = (props) => {
         </div>
       </div>
       <ul className="Film-stats">
-        {/* meter useContext para no repetir las props */}
+        {/* Aquí me faltaría meter useContext para no repetir las props */}
         <FilmStats key={id} views={views} lists={lists} likes={likes} />
       </ul>
     </li>

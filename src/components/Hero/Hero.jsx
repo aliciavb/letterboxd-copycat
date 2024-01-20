@@ -1,3 +1,12 @@
+/*-----------------------------------------------------------------------
+  * Hero.jsx
+  *   Componente para la home ("/"). Se muestra debajo del Header
+  *   Estructura: 
+  *     - Imagen de cabecera (en móvil el logo se muestra aquí)
+  *     - Info de descripción de la app
+  *     - HeroMetadata contiene el título de la película de la imagen
+------------------------------------------------------------------------*/
+
 import "./Hero.css";
 
 export const Hero = () => {

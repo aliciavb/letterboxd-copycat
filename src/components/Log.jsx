@@ -1,13 +1,24 @@
-import { useState, useRef, useEffect } from "react";
+/*-----------------------------------------------------------------------
+  * Log.jsx
+  *   Componente que contiene el método post para añadir películas
+  *   Hooks:
+  *     - useState, useRef
+  *   Datos:
+  *     - API fetch a {VITE_URL_API}/myfilms con método POST
+  *   Estructura: 
+  *     - Poster de la película
+  *     - Componente FilmStats con los datos 
+------------------------------------------------------------------------*/
+import { useState, useRef } from "react";
 import "./Log.css";
 
 const Log = () => {
   const { VITE_URL_API } = import.meta.env;
 
-  const [myFilms, setmyFilms] = useState([]);
+  const [myFilms, setmyFilms] = useState([])
 
-  const addTitle = useRef();
-  const addYear = useRef();
+  const addTitle = useRef()
+  const addYear = useRef()
 
   const addFilmHandler = async (e) => {
     e.preventDefault();
@@ -15,7 +26,7 @@ const Log = () => {
     const newFilm = {
       title: addTitle.current.value,
       year: addYear.current.value,
-    };
+    }
 
     let options = {
       method: "post",
@@ -34,7 +45,7 @@ const Log = () => {
     filmToggleOpen();
   };
 
-  //abre y cierra el formulario de log
+  //abre y cierra el formulario de Log
   const [logOpen, setLogOpen] = useState(false);
   const filmToggleOpen = () => setLogOpen(!logOpen);
 
@@ -43,25 +54,20 @@ const Log = () => {
       <a className="LogButton-a" onClick={filmToggleOpen}>
         <span>Log</span>
       </a>
-      <form
-        className={`LogForm ${logOpen ? "isVisible" : ""}`}
-        onSubmit={addFilmHandler}
-      >
-        <a className="LogForm-close" onClick={filmToggleOpen}>
-          x
-        </a>
+      <form className={`LogForm ${logOpen ? "isVisible" : ""}`} onSubmit={addFilmHandler} >
+        <a className="LogForm-close" onClick={filmToggleOpen}> x </a>
         <div className="LogForm-field">
           <label htmlFor="Title">Title</label>
-          <input type="text" name="addTitle" ref={addTitle} placeholder="" />
+          <input type="text" name="addTitle" ref={addTitle}/>
         </div>
         <div className="LogForm-field">
           <label htmlFor="Year">Year</label>
-          <input type="number" name="addYear" ref={addYear} placeholder="" />
+          <input type="number" name="addYear" ref={addYear}/>
         </div>
         <input className="LogForm-submit" type="submit" value="Log film" />
       </form>
     </li>
-  );
-};
+  )
+}
 
-export default Log;
+export default Log

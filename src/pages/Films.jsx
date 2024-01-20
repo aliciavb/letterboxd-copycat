@@ -1,14 +1,28 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Header } from "../components/Header/Header";
-import "./Films.css";
-import MyFilms from "../components/MyFilms/MyFilms";
-import { PopularLi } from "../components/PopularLi";
+/*-----------------------------------------------------------------------
+  * Films.jsx
+  *   Esta página se carga cuando el usuario hace login 
+  *   Hooks:
+  *     - useNavigate, useEffect, useState
+  *   Datos:
+  *     - Se comprueba que existan en localStorage o redirige a "/"
+  *     - API fetch a {VITE_URL_API}/films
+  *   Estructura: 
+  *     - Header con el menú
+  *     - Lista vacía con el componente MyFilms (Gestor)
+  *     - Lista de "popular films" con el componente PopularLi
+------------------------------------------------------------------------*/
+
+import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Header } from "../components/Header/Header"
+import { PopularLi } from "../components/PopularLi"
+import MyFilms from "../components/MyFilms/MyFilms"
+import "./Films.css"
 
 export const Films = () => {
-  const { VITE_URL_API } = import.meta.env;
+  const { VITE_URL_API } = import.meta.env
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!localStorage.getItem("usuarios")) {

@@ -1,6 +1,20 @@
-import { useEffect, useState } from "react";
-import "./Main.css";
-import { PopularLi } from "../PopularLi";
+/*-----------------------------------------------------------------------
+  * Main.jsx
+  *   Componente que coloca contenido de la home ("/") debajo del Hero
+  *   Hooks:
+  *     - useEffect, useState
+  *   Datos:
+  *     - API fetch a {VITE_URL_API}/films para mostrar Featured films
+  *     - API fetch a {VITE_URL_API}/highlights para Highlights
+  *   Estructura: 
+  *     - Lista de películas destacadas con componente PopularLi
+  *     - Banner 
+  *     - Highlights 
+------------------------------------------------------------------------*/
+
+import { useEffect, useState } from "react"
+import { PopularLi } from "../PopularLi"
+import "./Main.css"
 
 export const Main = () => {
   const { VITE_URL_API } = import.meta.env;
@@ -12,11 +26,9 @@ export const Main = () => {
   useEffect(() => {
     fetch(`${VITE_URL_API}films`)
       .then((res) => res.json())
-      .then((data) => {
-        setFilms(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      .then((data) => {  setFilms(data)})
+      .catch((err) => console.log(err))
+  }, [])
 
   // useState para buscar los elementos del array de highlights
   const [highlights, setHighlights] = useState([]);

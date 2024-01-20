@@ -1,7 +1,23 @@
-import "./Header.css";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
-import Log from "../Log";
+/*------------------------------------------------------------------------------
+  * Header.jsx
+  *   Contiene el menú de navegación con el Sign in y el botón de Log
+  *   Hooks:
+  *     - useNavigate, useState, useEffect, useRef
+  *   Datos:
+  *     - API fetch a {VITE_URL_API}/ para recibir los usuarios
+  *     - LocalStorage para buscar si hay usuarios registrados
+  *     - API fetch a {VITE_URL_API}/nav para mostrar elementos del menú
+  *   Estructura: 
+  *     - H1 con el logo (en móvil se muestra en Hero)
+  *     - Menú de navegación que cambia si el usuario está loggeado
+  *       - Primer elemento muestra Sign in o Hello, user 
+  *       - Lista de elementos de /nav con enlace a la web de letterboxd.com
+  *       - Botón de Log que muestra Log.jsx para registrar películas
+------------------------------------------------------------------------------*/
+import { useNavigate } from "react-router-dom"
+import { useState, useEffect, useRef } from "react"
+import Log from "../Log"
+import "./Header.css"
 
 export const Header = () => {
   const { VITE_URL_API } = import.meta.env;
