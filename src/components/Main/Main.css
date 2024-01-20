@@ -116,44 +116,35 @@
     .Main {
         width: 90%;
     }
-
     /* en móvil solo se ven 4 featured films */
     .Featured-carrousel .Popular-li {
         flex: 0 0 calc(25% - 10px);
         margin-right: 10px;
     }
-
     .Banner-desktop {
         display: none;
     }
-
     .Banner-mobile {
         display: block;
     }
-
     .Highlight {
         width: 100%;
     }
-
     .Highlight-icon {
         width: 20%;
     }
-
     .Highlight p {
         width: 80%;
         line-height: 1.5rem;
     }
-
     .Main .Film-text {
         display: none;
     }
-
     .Main .Film-stats {
         display: none;
     }
-
     .Main .Popular-li {
-        margin-right: 0;
+        margin-right: 10px;
         margin-bottom: 1rem;
     }
 
