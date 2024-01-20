@@ -16,7 +16,7 @@
 ------------------------------------------------------------------------------*/
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
-import Log from "../Log"
+import Log from "../Log/Log"
 import "./Header.css"
 
 /**
