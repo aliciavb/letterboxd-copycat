@@ -38,7 +38,7 @@ const HeroDiv = () => {
   return(
     <div className="Hero-div">
         <h2 className="Hero-h2"> Track films you've watched. <br /> Save those you want to see. <br /> Tell your friends what's good. </h2>
-        <a className="Hero-cta" href="/create-account/"> Get started — it's free! </a>
+        <a className="Hero-cta" href="https://letterboxd.com/create-account/" target="_blank"> Get started — it's free! </a>
         <p className="Hero-p"> The social network for film lovers. <br /> Also available on
           <span>
             <img className="Hero-icon apple" src="/assets/icons/ios-apple.svg" alt="iOS, Apple"

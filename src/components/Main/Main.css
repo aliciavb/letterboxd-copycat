@@ -16,7 +16,7 @@ Contiene los estilos del contenido que aparece en /
   max-width: 950px;
   padding: 2em 0;
 }
-.Films-featured {
+ .Films-featured {
   margin: 0 auto;
   width: 100%;
   max-width: 950px;
@@ -28,7 +28,7 @@ Contiene los estilos del contenido que aparece en /
   overflow: hidden;
   justify-content: space-between;
 }
-.Featured-carrousel .Popular-li {
+ .Featured-carrousel .Popular-li {
   flex: 0 0 calc(16.7% - 10px);
   margin-right: 10px;
 }
@@ -45,6 +45,7 @@ Contiene los estilos del contenido que aparece en /
 
 .Featured-carrousel .Film-poster {
   background: var(--bg-dark);
+  width: auto;
 }
 
 .Featured-carrousel .Film-poster:hover {
@@ -116,6 +117,7 @@ Contiene los estilos del contenido que aparece en /
   display: none;
 }
 
+
 @media (max-width: 768px) {
   .Main {
     width: 90%;
@@ -141,14 +143,11 @@ Contiene los estilos del contenido que aparece en /
     width: 80%;
     line-height: 1.5rem;
   }
-  .Main .Film-text {
+  .Film-text {
     display: none;
   }
-  .Main .Film-stats {
+   .Film-stats {
     display: none;
   }
-  .Main .Popular-li {
-    margin-right: 10px;
-    margin-bottom: 1rem;
-  }
+
 }
