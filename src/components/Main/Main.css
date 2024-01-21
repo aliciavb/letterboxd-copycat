@@ -92,7 +92,7 @@ Contiene los estilos del contenido que aparece en /
   box-sizing: border-box;
   display: flex;
   margin-bottom: 10px;
-  width: 310px;
+  width: 32%;
 
   background: var(--grey-dark);
   padding: 16px 20px 18px;
