@@ -3,7 +3,7 @@
 ## Descripción General
 
 La aplicación realizada en este proyecto es una
-réplica de esta aplicación con el stack MERN:
+réplica de letterboxd.com con el stack MERN:
 
 - MongoDB
 - Express.js
