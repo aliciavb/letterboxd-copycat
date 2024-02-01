@@ -46,6 +46,6 @@ npm run dev
 ```
 ### Referencias y Documentación
 - [Letterboxd](https://letterboxd.com) 
-- Proyectos y Documentación de Clases en CEI
+- Proyectos y Documentación de Clases en [CEI](https://cei.es/) 
 - Stackoverflow
 - ChatGPT
