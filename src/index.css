@@ -1,56 +1,63 @@
+/* -----------------------------------------------
+index.css
+- Root: variables
+- Resets del body
+- Tipografías de /assets/fonts
+--------------------------------------------------*/
+
 @charset "UTF-8";
 
+:root {
+  --verde: #00c030;
+  --naranja: #ff9010;
+  --azul: #40bcf4;
+  --bg-dark: #14181c;
+  --bg-light: #2c3440;
+  --grey-light: #d8e0e8;
+  --grey-regular: #99aabb;
+  --grey-semidark: #667788;
+  --grey-dark: #445566;
+  --white: #fafafa;
+  --sans-font: "GraphikWeb", sans-serif;
+  --serif-font: "TiemposHeadlineWeb", Georgia, serif;
+}
 
 body {
-    font-family: GraphikWeb,sans-serif;
-    background-color: #14181c;
-    background-image: linear-gradient(to bottom,#14181c calc(var(--layout-flex-leaderboard-height)),#14181c calc(250px + var(--layout-flex-leaderboard-height)),#2c3440 calc(251px + var(--layout-flex-leaderboard-height)));
-    background-position: 0 0;
-    color: #9ab;
-    height: 100%;
-    width: 100%;
-    line-height: 1;
-    display: block;
-}
+  font-family: var(--sans-font);
+  background-color: var(--bg-dark);
+  color: var(--grey-regular);
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  display: block;
 
-h2 {
-  font-family: TiemposHeadlineWeb, Georgia,serif;
-  font-weight: 700;
-  font-size: 2.25rem;
-  line-height: 2.25rem;
-  margin: 0 0 10px;
-  color: #fff;
-  overflow-wrap: break-word;
-  font-style: inherit;
-  outline: 0;
-  padding: 0;
-  vertical-align: baseline;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
-input{
-  margin: 1em 0;
-  padding: 1em;
-  border-radius: 5px;
-  border: 1px solid white;
-}
-
-
-::selection {
-  background: #40bcf4;
-  color: #fff;
-}
 
 @font-face {
-  font-family: GraphikWeb;
+  font-family: "GraphikWeb";
   font-style: normal;
   font-weight: 400;
-  src: "/assets/Graphik-Regular-Web.woff";
+  src: "/assets/fonts/Graphik-Regular-Web.woff" format("woff")
 }
 
 @font-face {
-    font-family: TiemposHeadlineWeb;
-    font-style: normal;
-    font-weight: 700;
-    src:"/assets/TiemposHeadlineWeb-Bold.woff"
-  }
+  font-family: "GraphikWeb";
+  font-style: normal;
+  font-weight: 100;
+  src: "/assets/fonts/Graphik-Light-Web.woff" format("woff")
+}
+
+
+@font-face {
+  font-family: "TiemposHeadlineWeb";
+  font-style: normal;
+  font-weight: 700;
+  src: "/assets/fonts/TiemposHeadlineWeb-Bold.woff" format("woff")
+}
