@@ -67,8 +67,13 @@ export const Header = () => {
     }
   }, [])
 
-  if (loading) {
-    return <div>Loading...</div>; // Render loading indicator while fetching data
+    if (loading) {
+    return (
+      <div className="LoadingScreen">
+        <div className="LoadingScreen-spinner"></div>
+        <p className="LoadingScreen-text">Loading...</p>
+      </div>
+    );
   }
   
   return (
