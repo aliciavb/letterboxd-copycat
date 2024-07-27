@@ -13,7 +13,7 @@ import "./Hero.css";
 export const Hero = () => {
   return (
     <div className="Hero">
-      <img className="Hero-img" src="/assets/Hero-img.jpg" alt="Poor Things | Frame"
+      <img className="Hero-img" src="/assets/Hero-img.jpg" alt="Featured film | Frame"
         loading="lazy"
       />
       <div className="Hero-mask">
