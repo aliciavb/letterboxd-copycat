@@ -38,6 +38,8 @@ export const Header = () => {
 
   const [nav, setNav] = useState([])
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true); // Add loading state
+
   const toggleOpen = () => setOpen(!open);
 
   const [loggedIn, setLoggedIn] = useState(false)
@@ -46,9 +48,15 @@ export const Header = () => {
   useEffect(() => {
     fetch(`${VITE_URL_API}nav`)
       .then((res) => res.json())
-      .then((data) => setNav(data))
-      .catch((err) => console.log(err));
-  }, [])
+      .then((data) =>{
+        setNav(data);
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false); // Set loading to false in case of error
+      });
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("usuarios")) {
@@ -59,6 +67,9 @@ export const Header = () => {
     }
   }, [])
 
+  if (loading) {
+    return <div>Loading...</div>; // Render loading indicator while fetching data
+  }
   
   return (
     <header className={`Header ${loggedIn ? "isLogged" : ""}`}>
