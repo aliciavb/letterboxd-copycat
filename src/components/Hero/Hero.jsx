@@ -59,7 +59,7 @@ const HeroDiv = () => {
 const HeroMetadata = () => {
   return(
     <p className="Hero-metadata">
-        <a href="https://letterboxd.com/film/poor-things-2023/" target="_blank">
+        <a href="https://letterboxd.com/film/poor-things-2023/" target="_blank" rel="noreferrer">
           Poor Things (2023)
         </a>
       </p>

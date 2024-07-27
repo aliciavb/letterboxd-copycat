@@ -88,7 +88,6 @@ Contenido que aparece en /, entre el Header y el Main
   padding: 0.625em 1.5em;
 
   letter-spacing: 0.075em;
-  text-transform: uppercase;
 
   cursor: pointer;
   border: none;
@@ -96,7 +95,7 @@ Contenido que aparece en /, entre el Header y el Main
 
   display: inline-block;
   font-family: var(--sans-font);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
 }
 
