@@ -108,6 +108,8 @@ Contiene los estilos del contenido que aparece en /
 }
 .Main-banner {
   padding: 0 1rem;
+  /* added display none to match letterboxd web */
+  display: none;
 }
 .Banner-desktop {
   display: block;

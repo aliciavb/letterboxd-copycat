@@ -85,7 +85,7 @@ const Highlight = (props) => {
 };
 
 /**
- * Este componente carga un banner decorativo
+ * Este componente carga un banner decorativo pero lo tengo desactivado porque ya no lo muestran
  * clase  {Banner-desktop}  muestra el banner de la versión desktop
  * clase  {Banner-mobile}   muestra el banner de la versión mobile
  */
