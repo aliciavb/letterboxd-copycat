@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.2 14.25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9ab;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path id="Combined-Shape" class="cls-1" d="m1.9,1.9v1.9c0,.57.38.95.95.95h.95c.57,0,.95-.47.95-.95v-1.9h5.7v1.9c0,.57.38.95.95.95h.95c.57,0,.95-.47.95-.95v-1.9h1.9v12.35H0V1.9h1.9Zm1.9-1.9v3.8h-.95V0h.95Zm8.55,0v3.8h-.95V0h.95Z"/>
+  </g>
+</svg>

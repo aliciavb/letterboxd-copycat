@@ -1,0 +1,135 @@
+/* ---------------Log.css-----------------------
+Contiene los estilos del botón de Log films
+- Botón
+    - Icono del botón
+- Formulario
+    - Inputs
+    - Submit
+- Banner
+--------------------------------------------------*/
+
+.LogButton {
+  box-sizing: border-box;
+  line-height: 13px;
+  padding-bottom: 6px;
+  padding-left: 26px;
+  padding-top: 6px;
+
+  position: relative;
+  right: 0;
+  text-align: left;
+  top: 0;
+  width: 67px;
+
+  background: var(--verde);
+  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.3);
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+
+  display: inline-block;
+  font-family: var(--sans-font);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+}
+
+.LogButton:after {
+  height: 2px;
+  width: 10px;
+
+  background: var(--white);
+  content: "";
+  display: block;
+  left: 15px;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.LogButton:before {
+  height: 10px;
+  width: 2px;
+
+  background: var(--white);
+  content: "";
+  display: block;
+  left: 15px;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.LogForm {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: var(--bg-dark);
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.LogForm.isVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.LogForm-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: var(--grey-semidark);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.LogForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.LogForm label {
+  color: var(--grey-semidark);
+  font-size: 0.9rem;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.LogForm-field input[type="text"],
+.LogForm-field input[type="password"],
+.LogForm-field input[type="number"] {
+  font-size: 1rem;
+  padding: 0.3rem 0.4rem;
+  width: 150px;
+  margin: 0;
+  background-color: var(--bg-light);
+  border: none;
+  border-radius: 0.2rem;
+  box-shadow: inset 0 -1px 0 var(--grey-dark);
+  box-sizing: border-box;
+  color: var(--grey-regular);
+}
+
+.LogForm-submit {
+  background: var(--verde);
+  font-family: var(--sans-font);
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.4rem 0.8rem 0.3rem;
+  cursor: pointer;
+}
+
+.LogForm li {
+  margin-bottom: 5px;
+}
