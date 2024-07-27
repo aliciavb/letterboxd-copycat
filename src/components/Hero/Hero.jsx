@@ -16,17 +16,17 @@ export const Hero = () => {
       <img className="Hero-img" src="/assets/Hero-img.jpg" alt="Featured film | Frame"
         loading="lazy"
       />
-      <div className="Hero-mask">
+      <div className="Hero-mask"> 
         <h1 className="Header-h1 mobile">
           <a href="/" className="Header-logo">
             <img src="/assets/H1-logo.svg" alt="Letterboxd | Logo" loading="lazy"
             />
           </a>
         </h1>
+
       </div>
       <HeroDiv />
       <HeroMetadata />
-      
     </div>
   );
 };
